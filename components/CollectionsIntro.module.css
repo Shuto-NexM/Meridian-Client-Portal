@@ -1,0 +1,55 @@
+.section {
+  padding: 120px 96px 80px;
+  background: var(--m-bg);
+}
+
+.inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.pullQuote {
+  font-family: var(--font-d);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.48;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+.body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.85;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 80px 32px 60px; }
+  .pullQuote { font-size: 22px; }
+  .body { font-size: 14px; }
+}

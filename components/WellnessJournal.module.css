@@ -1,0 +1,238 @@
+.section {
+  padding: 0 0 160px;
+  background: var(--m-bg);
+}
+
+.header {
+  padding: 0 96px 56px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.heading {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.06;
+}
+
+.headingMuted {
+  font-style: italic;
+  color: var(--m-stone);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3px;
+  padding: 0 96px;
+  align-items: stretch;
+}
+
+/* Featured */
+.featured {
+  display: flex;
+  flex-direction: column;
+  background: var(--m-surface);
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured:focus-visible { outline: 2px solid var(--m-gold); outline-offset: 2px; }
+
+.featImgPlaceholder img {
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured:hover .featImgPlaceholder img { transform: scale(1.025); }
+
+@media (prefers-reduced-motion: reduce) {
+  .featImgPlaceholder img { transition: none; }
+  .featured:hover .featImgPlaceholder img { transform: none; }
+}
+
+.featImg {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.featImgPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(152deg, oklch(28% 0.030 88) 0%, oklch(20% 0.020 80) 55%, oklch(15% 0.012 72) 100%);
+}
+
+.imgCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imgFade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40%;
+  background: linear-gradient(to top, oklch(14% 0.010 65 / 0.35) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.featContent {
+  padding: 36px 40px 44px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.articleLabel {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-gold);
+  margin-bottom: 16px;
+}
+
+.featTitle {
+  font-family: var(--font-d);
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--m-ink);
+  line-height: 1.18;
+  margin-bottom: 20px;
+}
+
+.featBody {
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.82;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.featMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.metaDate {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--m-stone);
+}
+
+.metaDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--m-border);
+}
+
+.metaRead {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--m-stone);
+}
+
+.featLink {
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--m-charcoal);
+  transition: color 200ms;
+  text-decoration: none;
+}
+
+.featLink:hover { color: var(--m-ink); }
+
+/* Secondary */
+.secondaries {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.secondary {
+  padding: 36px 40px 40px;
+  background: var(--m-surface);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--m-border-s);
+  text-decoration: none;
+  color: inherit;
+}
+
+.secondary:focus-visible { outline: 2px solid var(--m-gold); outline-offset: 2px; }
+
+.secTitle {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--m-ink);
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+
+.secBody {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.78;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.secMeta {
+  margin-bottom: 16px;
+}
+
+.secLink {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--m-stone);
+  transition: color 200ms;
+  text-decoration: none;
+}
+
+.secLink:hover { color: var(--m-charcoal); }
+
+@media (max-width: 1024px) {
+  .header { padding: 0 64px 48px; }
+  .heading { font-size: 42px; }
+  .grid { padding: 0 64px; grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .header { padding: 0 32px 40px; }
+  .heading { font-size: 36px; }
+  .grid { padding: 0 32px; }
+  .featTitle { font-size: 24px; }
+}

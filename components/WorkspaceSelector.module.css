@@ -1,0 +1,164 @@
+.page {
+  min-height: 100vh;
+  background: oklch(13% 0.010 55);
+  padding: 120px 64px 120px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.inner {
+  width: 100%;
+  max-width: 860px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(50% 0.014 62);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: oklch(30% 0.012 55);
+}
+
+.heading {
+  font-family: var(--font-d);
+  font-size: 44px;
+  font-weight: 300;
+  color: oklch(90% 0.010 72);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: oklch(52% 0.012 62);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 56px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 56px;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  padding: 28px 24px;
+  background: oklch(17% 0.012 55);
+  border: 1px solid oklch(24% 0.012 55);
+  border-radius: 4px;
+  color: inherit;
+  transition: border-color 220ms, background 220ms;
+}
+
+.card:hover {
+  border-color: oklch(38% 0.020 62);
+  background: oklch(19% 0.014 57);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--m-gold);
+  outline-offset: 2px;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cardRegion {
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: oklch(44% 0.012 60);
+  font-weight: 600;
+}
+
+.cardNights {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: oklch(50% 0.014 62);
+  background: oklch(13% 0.010 55);
+  border: 1px solid oklch(26% 0.012 55);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.cardTitle {
+  font-family: var(--font-d);
+  font-size: 28px;
+  font-weight: 300;
+  color: oklch(88% 0.012 70);
+  line-height: 1.1;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.cardDests {
+  font-size: 11.5px;
+  font-weight: 300;
+  color: oklch(52% 0.012 62);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.destSep {
+  color: oklch(36% 0.010 55);
+}
+
+.cardCta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(56% 0.020 64);
+  font-weight: 500;
+  transition: color 180ms;
+}
+
+.card:hover .cardCta {
+  color: oklch(74% 0.028 66);
+}
+
+.footer {
+  border-top: 1px solid oklch(22% 0.012 55);
+  padding-top: 28px;
+}
+
+.footerLine {
+  display: none;
+}
+
+.footerNote {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: oklch(40% 0.010 58);
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+@media (max-width: 768px) {
+  .page { padding: 100px 32px 80px; }
+  .grid { grid-template-columns: 1fr; gap: 8px; }
+  .heading { font-size: 34px; }
+}

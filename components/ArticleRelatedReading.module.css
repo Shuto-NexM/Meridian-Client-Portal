@@ -1,0 +1,210 @@
+.section {
+  padding: 80px 96px 0;
+  background: var(--m-bg);
+  border-top: 1px solid var(--m-border-s);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 52px;
+}
+
+.headerLeft {}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+  flex-shrink: 0;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+}
+
+.allLink {
+  font-size: 12.5px;
+  color: var(--m-charcoal);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--m-border);
+  padding-bottom: 8px;
+  flex-shrink: 0;
+  margin-left: 48px;
+  transition: color 200ms;
+}
+
+.allLink:hover { color: var(--m-ink); }
+
+/* Grid: 1.6fr 1fr 1fr */
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 52px;
+  padding-bottom: 120px;
+}
+
+/* Featured card */
+.featCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featImgWrap img {
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featCard:hover .featImgWrap img { transform: scale(1.025); }
+.featCard:focus-visible { outline: 2px solid var(--m-gold); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .featImgWrap img { transition: none; }
+  .featCard:hover .featImgWrap img { transform: none; }
+}
+
+.featImgWrap {
+  overflow: hidden;
+  border-radius: 2px;
+  margin-bottom: 22px;
+  height: 240px;
+  position: relative;
+}
+
+.featImgBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(152deg, oklch(22% 0.016 220) 0%, oklch(15% 0.010 216) 55%, oklch(10% 0.006 212) 100%);
+}
+
+.featImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featCard:hover .featImg { transform: scale(1.025); }
+
+.featMeta {
+  font-size: 9.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.tag {}
+.dot { color: var(--m-border-s); }
+.readTime {}
+
+.featTitle {
+  font-family: var(--font-d);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.featBody {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+/* Secondary cards */
+.secondaryCard {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  padding-top: 8px;
+  border-top: 1.5px solid var(--m-border-s);
+}
+
+.secondaryCard:focus-visible { outline: 2px solid var(--m-gold); outline-offset: 2px; }
+
+.secondaryMeta {
+  font-size: 9.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.secondaryTitle {
+  font-family: var(--font-d);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+.readLink {
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.readLink:hover { color: var(--m-ink); }
+.readLinkBottom { margin-top: auto; }
+
+@media (max-width: 1024px) {
+  .section { padding: 60px 64px 0; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 60px 32px 0; }
+  .grid { grid-template-columns: 1fr; gap: 32px; }
+  .header { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .allLink { margin-left: 0; }
+  .secondaryCard { border-top-width: 1px; }
+}

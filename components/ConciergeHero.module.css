@@ -1,0 +1,157 @@
+.section {
+  height: 85vh;
+  min-height: 580px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(158deg, oklch(22% 0.018 68) 0%, oklch(15% 0.012 64) 46%, oklch(11% 0.008 60) 100%);
+  animation: ken-burns 20s cubic-bezier(0, 0, 0.2, 1) forwards;
+  transform-origin: 50% 46%;
+}
+
+.imgEl {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  animation: ken-burns 20s cubic-bezier(0, 0, 0.2, 1) forwards;
+  transform-origin: 50% 46%;
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+}
+
+.warmPulse {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 75% 60% at 50% 40%, oklch(44% 0.018 72 / 0.07) 0%, transparent 70%);
+  animation: lighting-warmth 30s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, oklch(11% 0.008 60 / 0.55) 0%, transparent 52%, oklch(11% 0.008 60 / 0.30) 100%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 96px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  animation: fade-in 0.5s ease 1.4s both;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: oklch(46% 0.014 68);
+}
+
+.eyebrowLine {
+  width: 28px;
+  height: 1px;
+  background: oklch(48% 0.014 68);
+  opacity: 0.7;
+}
+
+.h1 {
+  font-family: var(--font-d);
+  font-weight: 300;
+  color: white;
+  line-height: 0.92;
+  margin-bottom: 36px;
+  letter-spacing: -0.015em;
+}
+
+.h1Line1 {
+  display: block;
+  font-size: 96px;
+  animation: fade-up-2 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.6s both;
+}
+
+.h1Line2 {
+  display: block;
+  font-size: 96px;
+  font-style: italic;
+  color: oklch(82% 0.012 72);
+  animation: fade-up-2 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.85s both;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  color: oklch(60% 0.014 68);
+  line-height: 1.68;
+  max-width: 540px;
+  animation: fade-up-1 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.1s both;
+}
+
+.bottomBar {
+  position: absolute;
+  bottom: 40px;
+  left: 96px;
+  right: 96px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  animation: fade-in 0.5s ease 3s both;
+}
+
+.tagline {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: oklch(38% 0.010 62);
+  font-weight: 300;
+}
+
+.readMore {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(50% 0.012 65);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: color 200ms;
+}
+
+.readMore:hover { color: oklch(68% 0.012 65); }
+
+@media (max-width: 1024px) {
+  .h1Line1, .h1Line2 { font-size: 72px; }
+  .inner { padding: 0 48px; }
+  .bottomBar { left: 48px; right: 48px; }
+}
+
+@media (max-width: 768px) {
+  .h1Line1, .h1Line2 { font-size: 52px; }
+  .subtitle { font-size: 16px; }
+}

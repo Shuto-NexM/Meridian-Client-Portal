@@ -1,0 +1,205 @@
+.section {
+  padding: 0 96px 160px;
+  background: var(--m-bg);
+  border-top: 1px solid var(--m-border-s);
+}
+
+.topBar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 64px 0 56px;
+}
+
+.topBarLeft {}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.heading {
+  font-family: var(--font-d);
+  font-size: 44px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+}
+
+.viewAll {
+  font-size: 12.5px;
+  color: var(--m-charcoal);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--m-border);
+  padding-bottom: 8px;
+  transition: color 200ms;
+  text-decoration: none;
+  border-bottom: 1px solid var(--m-border-s);
+}
+
+.viewAll:hover { color: var(--m-ink); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 52px;
+}
+
+/* Featured article */
+.featured {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured:focus-visible { outline: 2px solid var(--m-gold); outline-offset: 2px; }
+
+.featImg img {
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured:hover .featImg img { transform: scale(1.025); }
+
+@media (prefers-reduced-motion: reduce) {
+  .featImg img { transition: none; }
+  .featured:hover .featImg img { transform: none; }
+}
+
+.featImg {
+  height: 260px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  background: linear-gradient(155deg, oklch(28% 0.026 44) 0%, oklch(18% 0.018 40) 55%, oklch(13% 0.012 36) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.imgCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.articleLabel {
+  font-size: 9.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.featTitle {
+  font-family: var(--font-d);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.featBody {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.80;
+  margin-bottom: 20px;
+}
+
+.featLink {
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--m-charcoal);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.featLink:hover { color: var(--m-ink); }
+
+/* Secondary articles */
+.secondary {
+  padding-top: 8px;
+  border-top: 1.5px solid var(--m-border-s);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.secondary:focus-visible { outline: 2px solid var(--m-gold); outline-offset: 2px; }
+
+.secTitle {
+  font-family: var(--font-d);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.secBody {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.78;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.secLink {
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.secLink:hover { color: var(--m-charcoal); }
+
+@media (max-width: 1024px) {
+  .section { padding: 0 64px 120px; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .heading { font-size: 36px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 0 32px 100px; }
+  .topBar { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .grid { grid-template-columns: 1fr; }
+  .heading { font-size: 30px; }
+  .featTitle { font-size: 26px; }
+}

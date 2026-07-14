@@ -1,0 +1,206 @@
+.section {
+  padding: 0 96px 160px;
+  background: var(--m-bg);
+  border-top: 1px solid var(--m-border-s);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 64px 0 56px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.heading {
+  font-family: var(--font-d);
+  font-size: 44px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+}
+
+.allLink {
+  font-size: 12.5px;
+  color: var(--m-charcoal);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--m-border);
+  padding-bottom: 8px;
+  transition: color 200ms;
+}
+
+.allLink:hover { color: var(--m-ink); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 52px;
+}
+
+/* Featured */
+.featured {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured:focus-visible { outline: 2px solid var(--m-gold); outline-offset: 2px; }
+
+.featuredImg img {
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured:hover .featuredImg img { transform: scale(1.025); }
+
+@media (prefers-reduced-motion: reduce) {
+  .featuredImg img { transition: none; }
+  .featured:hover .featuredImg img { transform: none; }
+}
+
+.featuredImg {
+  height: 260px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(155deg, oklch(24% 0.020 68) 0%, oklch(16% 0.014 64) 55%, oklch(11% 0.009 60) 100%);
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featuredMeta {
+  font-size: 9.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.featuredTitle {
+  font-family: var(--font-d);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.featuredBody {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.80;
+  margin-bottom: 20px;
+}
+
+.featuredLink {
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--m-charcoal);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.featuredLink:hover { color: var(--m-ink); }
+
+/* Secondary */
+.secondary {
+  padding-top: 8px;
+  border-top: 1.5px solid var(--m-border-s);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.secondary:focus-visible { outline: 2px solid var(--m-gold); outline-offset: 2px; }
+
+.secondaryMeta {
+  font-size: 9.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.secondaryTitle {
+  font-family: var(--font-d);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.secondaryBody {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.78;
+  margin-bottom: 20px;
+}
+
+.secondaryLink {
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.secondaryLink:hover { color: var(--m-charcoal); }
+
+@media (max-width: 1024px) {
+  .section { padding: 0 64px 120px; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .featured { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 0 32px 80px; }
+  .grid { grid-template-columns: 1fr; }
+  .header { flex-direction: column; gap: 16px; align-items: flex-start; }
+}

@@ -1,0 +1,94 @@
+.section {
+  padding: 0 96px 160px;
+  background: var(--m-bg);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 64px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.heading {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.08;
+}
+
+.headingMuted {
+  font-style: italic;
+  color: var(--m-stone);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--m-border-s);
+  border-left: 1px solid var(--m-border-s);
+}
+
+.cell {
+  padding: 40px 36px 44px;
+  border-right: 1px solid var(--m-border-s);
+  border-bottom: 1px solid var(--m-border-s);
+  background: var(--m-bg);
+  transition: background 220ms;
+}
+
+.cell:hover {
+  background: var(--m-surface);
+}
+
+.cellTitle {
+  font-family: var(--font-d);
+  font-size: 26px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--m-ink);
+  margin-bottom: 16px;
+}
+
+.cellBody {
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.80;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 0 64px 120px; }
+  .heading { font-size: 42px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 0 32px 100px; }
+  .heading { font-size: 34px; }
+  .grid { grid-template-columns: 1fr; }
+}

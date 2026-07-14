@@ -1,0 +1,123 @@
+.section {
+  height: 78vh;
+  min-height: 560px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, oklch(24% 0.022 68) 0%, oklch(17% 0.016 64) 44%, oklch(12% 0.010 60) 100%);
+  animation: ken-burns 18s cubic-bezier(0, 0, 0.2, 1) forwards;
+  transform-origin: 50% 48%;
+}
+
+.imgWrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  animation: ken-burns 18s cubic-bezier(0, 0, 0.2, 1) forwards;
+  transform-origin: 50% 48%;
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+}
+
+.warmPulse {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 42%, oklch(44% 0.018 72 / 0.07) 0%, transparent 70%);
+  animation: lighting-warmth 28s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, oklch(12% 0.010 60 / 0.55) 0%, transparent 50%, oklch(12% 0.010 60 / 0.28) 100%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 96px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  animation: fade-in 0.5s ease 1.4s both;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: oklch(46% 0.014 68);
+}
+
+.eyebrowLine {
+  width: 28px;
+  height: 1px;
+  background: oklch(48% 0.014 68);
+  opacity: 0.7;
+}
+
+.h1 {
+  font-family: var(--font-d);
+  font-weight: 300;
+  color: white;
+  line-height: 0.92;
+  margin-bottom: 36px;
+  letter-spacing: -0.015em;
+}
+
+.line1 {
+  display: block;
+  font-size: 96px;
+  animation: fade-up-2 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.6s both;
+}
+
+.line2 {
+  display: block;
+  font-size: 96px;
+  font-style: italic;
+  color: oklch(82% 0.012 72);
+  animation: fade-up-2 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.85s both;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  color: oklch(60% 0.014 68);
+  line-height: 1.68;
+  max-width: 520px;
+  animation: fade-up-1 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.1s both;
+}
+
+@media (max-width: 1024px) {
+  .line1, .line2 { font-size: 72px; }
+}
+
+@media (max-width: 768px) {
+  .line1, .line2 { font-size: 52px; }
+  .subtitle { font-size: 16px; }
+}

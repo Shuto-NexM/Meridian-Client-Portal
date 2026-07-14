@@ -1,0 +1,86 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: oklch(11% 0.010 55);
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 52% at 50% 52%, oklch(66% 0.140 82 / 0.048) 0%, transparent 62%);
+  animation: lighting-warmth 36s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.texture {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 52px, oklch(100% 0 0 / 0.005) 52px, oklch(100% 0 0 / 0.005) 53px);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 720px;
+  padding: 0 48px;
+}
+
+.wordmark {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: oklch(26% 0.010 60);
+  margin-bottom: 88px;
+}
+
+.statement {
+  font-family: var(--font-d);
+  font-size: 54px;
+  font-weight: 300;
+  color: oklch(90% 0.008 75);
+  line-height: 1.28;
+  font-style: italic;
+  margin-bottom: 72px;
+  letter-spacing: -0.005em;
+}
+
+.cta {
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: oklch(36% 0.010 60);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: color 500ms;
+}
+
+.cta:hover { color: oklch(60% 0.015 65); }
+
+.bottomLine {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lineDecor {
+  width: 1px;
+  height: 44px;
+  background: oklch(22% 0.010 60);
+}
+
+@media (max-width: 768px) {
+  .statement { font-size: 36px; }
+  .content { padding: 0 24px; }
+  .wordmark { margin-bottom: 56px; }
+}

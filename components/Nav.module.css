@@ -1,0 +1,114 @@
+/* Mobile menu button — hidden on desktop, visible on mobile */
+.menuBtn {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Nav bar — responsive padding */
+.navBar {
+  padding: 0 96px;
+}
+
+/* Desktop nav links (centered) */
+.desktopLinks {
+  display: flex;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Desktop-only right-side controls (search, user, CTA) */
+.desktopOnly {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Profile dropdown menu */
+.profileMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: oklch(17% 0.012 55);
+  border: 1px solid oklch(28% 0.014 55);
+  border-radius: 4px;
+  min-width: 220px;
+  padding: 6px;
+  box-shadow: 0 8px 32px oklch(8% 0.008 55 / 0.60);
+  z-index: 110;
+  animation: profileMenuIn 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes profileMenuIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profileMenu { animation: none; }
+}
+
+.profileMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  color: oklch(72% 0.012 65);
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-align: left;
+  transition: background 140ms, color 140ms;
+  font-family: inherit;
+}
+
+.profileMenuItem:hover {
+  background: oklch(22% 0.014 58);
+  color: oklch(86% 0.014 68);
+}
+
+.profileMenuItem:focus-visible {
+  outline: 2px solid var(--m-gold);
+  outline-offset: -2px;
+}
+
+.profileMenuDivider {
+  height: 1px;
+  background: oklch(24% 0.012 55);
+  margin: 4px 6px;
+}
+
+.prototypeBadge {
+  margin-left: auto;
+  font-size: 9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: oklch(40% 0.010 55);
+  background: oklch(13% 0.010 55);
+  border: 1px solid oklch(26% 0.012 55);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+@media (max-width: 1024px) {
+  .navBar { padding: 0 48px; }
+}
+
+@media (max-width: 768px) {
+  .menuBtn { display: flex; }
+  .navBar { padding: 0 24px; }
+  /* !important overrides inline style display values */
+  .desktopLinks { display: none !important; }
+  .desktopOnly { display: none !important; }
+}

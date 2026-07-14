@@ -1,0 +1,143 @@
+.section {
+  padding: 160px 96px;
+  background: var(--m-raised);
+  border-top: 1px solid var(--m-border-s);
+  border-bottom: 1px solid var(--m-border-s);
+}
+
+.inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  gap: 0;
+  align-items: stretch;
+  margin-bottom: 80px;
+}
+
+.imgPh {
+  min-height: 480px;
+  border-radius: 2px 0 0 2px;
+  background: linear-gradient(155deg, oklch(26% 0.024 68) 0%, oklch(18% 0.016 64) 48%, oklch(13% 0.010 60) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imgCaption {
+  position: absolute;
+  bottom: 28px;
+  left: 36px;
+  font-size: 9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: oklch(40% 0.010 60);
+  z-index: 1;
+}
+
+.textPanel {
+  padding: 64px 64px 64px 60px;
+  background: var(--m-surface);
+  border-radius: 0 2px 2px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.05;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.84;
+  margin-bottom: 22px;
+}
+
+.p:last-child { margin-bottom: 0; }
+
+/* Principles row */
+.principles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--m-border-s);
+  border-left: 1px solid var(--m-border-s);
+}
+
+.principle {
+  padding: 36px 32px;
+  border-right: 1px solid var(--m-border-s);
+}
+
+.principleMiddle {
+  border-right: 1px solid var(--m-border-s);
+}
+
+.principleLabel {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.principleBody {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.75;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 100px 64px; }
+  .split { grid-template-columns: 1fr; }
+  .imgPh { min-height: 320px; border-radius: 2px 2px 0 0; }
+  .textPanel { border-radius: 0 0 2px 2px; }
+  .h2 { font-size: 34px; }
+  .principles { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 80px 32px; }
+}

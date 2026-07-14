@@ -1,0 +1,128 @@
+.section {
+  padding: 0 96px 160px;
+  background: var(--m-bg);
+  border-top: 1px solid var(--m-border-s);
+}
+
+.header {
+  padding-top: 100px;
+  margin-bottom: 80px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+  flex-shrink: 0;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+  max-width: 520px;
+}
+
+.h2Em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--m-stone);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.spine {
+  position: absolute;
+  left: 36px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--m-border-s);
+}
+
+.step {
+  display: flex;
+  gap: 52px;
+  align-items: flex-start;
+  padding-bottom: 64px;
+}
+
+.stepLast { padding-bottom: 0; }
+
+.dotCol {
+  position: relative;
+  flex-shrink: 0;
+  width: 72px;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--m-bg);
+  position: relative;
+  z-index: 1;
+}
+
+.dotGold { border: 2px solid var(--m-gold); }
+.dotRegular { border: 2px solid var(--m-border); }
+
+.content {
+  flex: 1;
+}
+
+.stageTitle {
+  font-family: var(--font-d);
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.stageBody {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.82;
+  max-width: 520px;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 0 64px 120px; }
+  .h2 { font-size: 40px; }
+  .stageTitle { font-size: 32px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 0 32px 80px; }
+  .h2 { font-size: 32px; }
+  .step { gap: 28px; }
+  .stageTitle { font-size: 28px; }
+}

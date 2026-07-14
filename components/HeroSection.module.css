@@ -1,0 +1,191 @@
+.hero {
+  height: 100vh;
+  min-height: 640px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.photoBg {
+  position: absolute;
+  inset: 0;
+  animation: ken-burns 12s cubic-bezier(0,0,0.2,1) forwards;
+  transform-origin: 55% 55%;
+  background: linear-gradient(160deg, oklch(24% 0.030 250) 0%, oklch(17% 0.018 200) 45%, oklch(22% 0.022 72) 100%);
+  overflow: hidden;
+}
+
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textureLine {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 40px, oklch(100% 0 0 / 0.008) 40px, oklch(100% 0 0 / 0.008) 41px);
+  pointer-events: none;
+}
+
+.warmPulse {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, oklch(65% 0.030 72 / 0.12) 0%, transparent 70%);
+  animation: lighting-warmth 24s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.gradLeft {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, oklch(13% 0.010 55 / 0.44) 0%, oklch(13% 0.010 55 / 0.14) 28%, transparent 52%);
+  pointer-events: none;
+}
+
+.gradBottom {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 58%;
+  background: linear-gradient(to top, oklch(13% 0.010 55 / 0.28) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 96px 96px 128px;
+}
+
+.inner { max-width: 560px; }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  animation: fade-up-1 0.4s cubic-bezier(0.16,1,0.3,1) 1.8s both;
+}
+
+.eyebrowLine {
+  width: 24px;
+  height: 1px;
+  background: oklch(72% 0.012 65);
+  flex-shrink: 0;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: oklch(65% 0.012 65);
+  font-weight: 400;
+}
+
+.headline {
+  font-family: var(--font-d);
+  font-weight: 300;
+  color: white;
+  line-height: 0.93;
+  margin-bottom: 28px;
+}
+
+.h1Line1 {
+  display: block;
+  font-size: 72px;
+  letter-spacing: -0.01em;
+  animation: fade-up-2 0.5s cubic-bezier(0.16,1,0.3,1) 2.0s both;
+}
+
+.h1Line2 {
+  display: block;
+  font-size: 72px;
+  letter-spacing: -0.01em;
+  font-style: italic;
+  color: oklch(88% 0.012 70);
+  animation: fade-up-2 0.5s cubic-bezier(0.16,1,0.3,1) 2.2s both;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  color: oklch(72% 0.015 65);
+  line-height: 1.65;
+  max-width: 480px;
+  margin-bottom: 48px;
+  animation: fade-up-1 0.4s cubic-bezier(0.16,1,0.3,1) 2.4s both;
+}
+
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  animation: fade-up-1 0.4s cubic-bezier(0.16,1,0.3,1) 2.8s both;
+}
+
+.ctaPrimary {
+  background: transparent;
+  color: white;
+  border: 1px solid oklch(100% 0 0 / 0.35);
+  padding: 11px 26px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: border-color 200ms, background 200ms;
+}
+
+.ctaPrimary:hover {
+  background: oklch(100% 0 0 / 0.10);
+  border-color: oklch(100% 0 0 / 0.55);
+}
+
+.ctaSecondary {
+  font-size: 13px;
+  color: oklch(78% 0.012 65);
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 200ms;
+}
+
+.ctaSecondary:hover { color: white; }
+
+.scrollNudge {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fade-in 0.5s ease-out 4s both;
+}
+
+.scrollText {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: oklch(55% 0.012 65);
+}
+
+.scrollArrow {
+  animation: scroll-nudge 2s ease-in-out 4.5s infinite;
+}
+
+@media (max-width: 768px) {
+  .content { padding: 88px 24px 80px; }
+  .h1Line1, .h1Line2 { font-size: 44px; }
+  .subtitle { font-size: 16px; }
+  .ctas { flex-direction: column; align-items: flex-start; }
+}

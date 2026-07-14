@@ -1,0 +1,119 @@
+.section {
+  padding: 160px 96px;
+  background: var(--m-bg);
+}
+
+.header {
+  max-width: 640px;
+  margin-bottom: 96px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+}
+
+.h2Em {
+  color: var(--m-stone);
+  font-weight: 300;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.spine {
+  position: absolute;
+  left: 36px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--m-border-s);
+}
+
+.stage {
+  display: flex;
+  gap: 52px;
+  align-items: flex-start;
+  padding-bottom: 60px;
+}
+
+.stageLast {
+  padding-bottom: 0;
+}
+
+.dotWrap {
+  flex-shrink: 0;
+  width: 72px;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--m-bg);
+  border: 2px solid var(--m-border);
+  z-index: 1;
+  position: relative;
+}
+
+.dotGold {
+  border-color: var(--m-gold);
+}
+
+.stageTitle {
+  font-family: var(--font-d);
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--m-ink);
+  font-style: italic;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.stageBody {
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.80;
+  max-width: 520px;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 100px 64px; }
+  .h2 { font-size: 38px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 80px 32px; }
+  .h2 { font-size: 30px; }
+}

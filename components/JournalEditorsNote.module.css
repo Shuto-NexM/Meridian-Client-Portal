@@ -1,0 +1,86 @@
+.section {
+  padding: 120px 96px 112px;
+  background: var(--m-raised);
+  border-bottom: 1px solid var(--m-border-s);
+}
+
+.inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.heading {
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+  flex-shrink: 0;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.05;
+  max-width: 580px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.88;
+  margin-bottom: 26px;
+}
+
+.p:last-of-type { margin-bottom: 0; }
+
+.signature {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--m-border-s);
+}
+
+.signatureText {
+  font-family: var(--font-d);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--m-stone);
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 80px 64px; }
+  .h2 { font-size: 40px; }
+  .grid { gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 64px 32px; }
+  .grid { grid-template-columns: 1fr; }
+  .h2 { font-size: 32px; }
+}

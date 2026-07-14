@@ -1,0 +1,116 @@
+.hero {
+  height: 82vh;
+  min-height: 580px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgPh {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(162deg, oklch(20% 0.018 62) 0%, oklch(14% 0.012 58) 44%, oklch(10% 0.008 54) 100%);
+  animation: ken-burns 20s cubic-bezier(0, 0, 0.2, 1) forwards;
+  transform-origin: 50% 52%;
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.warmPulse {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 75% 60% at 50% 42%, oklch(40% 0.016 68 / 0.06) 0%, transparent 70%);
+  animation: lighting-warmth 32s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, oklch(10% 0.008 54 / 0.58) 0%, transparent 52%, oklch(10% 0.008 54 / 0.30) 100%);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 96px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  animation: fade-in 0.5s ease 1.4s both;
+}
+
+.eyebrowLine {
+  width: 28px;
+  height: 1px;
+  background: oklch(46% 0.014 66);
+  opacity: 0.7;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: oklch(44% 0.014 66);
+}
+
+.h1 {
+  font-family: var(--font-d);
+  font-weight: 300;
+  color: white;
+  line-height: 0.92;
+  margin-bottom: 36px;
+  letter-spacing: -0.014em;
+}
+
+.h1Line1 {
+  display: block;
+  font-size: 100px;
+  animation: fade-up-2 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.6s both;
+}
+
+.h1Line2 {
+  display: block;
+  font-size: 100px;
+  font-style: italic;
+  color: oklch(82% 0.012 72);
+  animation: fade-up-2 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.85s both;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  color: oklch(58% 0.014 68);
+  line-height: 1.70;
+  max-width: 560px;
+  animation: fade-up-1 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.1s both;
+}
+
+.statLine {
+  position: absolute;
+  bottom: 40px;
+  left: 96px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: oklch(36% 0.010 60);
+  font-weight: 300;
+  animation: fade-in 0.5s ease 3s both;
+}

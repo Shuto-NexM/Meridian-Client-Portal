@@ -1,0 +1,157 @@
+.section {
+  padding: 0 96px 160px;
+  background: var(--m-bg);
+  border-top: 1px solid var(--m-border-s);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 64px 0 56px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 44px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+}
+
+.viewAll {
+  font-size: 12.5px;
+  color: var(--m-charcoal);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--m-border);
+  padding-bottom: 8px;
+  flex-shrink: 0;
+  margin-left: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 52px;
+}
+
+/* Featured card */
+.featured {}
+
+.featuredImgPh {
+  height: 260px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  background: linear-gradient(155deg, oklch(22% 0.020 66) 0%, oklch(15% 0.014 62) 55%, oklch(10% 0.008 58) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.featuredImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag {
+  font-size: 9.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.featuredTitle {
+  font-family: var(--font-d);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.featuredBody {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.80;
+  margin-bottom: 20px;
+}
+
+.readLink {
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--m-charcoal);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Secondary cards */
+.secondary {
+  padding-top: 8px;
+  border-top: 1.5px solid var(--m-border-s);
+}
+
+.secondaryTitle {
+  font-family: var(--font-d);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.readLinkStone {
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 0 64px 100px; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .h2 { font-size: 34px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 0 32px 80px; }
+  .grid { grid-template-columns: 1fr; }
+}

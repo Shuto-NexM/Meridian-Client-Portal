@@ -1,0 +1,298 @@
+.section {
+  padding: 0 0 160px;
+  background: var(--m-bg);
+  border-top: 1px solid var(--m-border-s);
+  overflow: hidden;
+}
+
+.header {
+  padding: 100px 96px 80px;
+  max-width: 600px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+}
+
+.h2Italic {
+  color: var(--m-stone);
+  font-weight: 300;
+}
+
+/* Spine */
+.spine {
+  position: relative;
+  padding: 0 96px;
+}
+
+.centerLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--m-border-s);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* Row layout: image/node/text or text/node/image */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 64px 1fr;
+  gap: 0;
+  align-items: center;
+  padding-bottom: 120px;
+}
+
+.rowLast {
+  padding-bottom: 0;
+}
+
+/* Node column */
+.nodeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.node {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--m-bg);
+  border: 2px solid var(--m-border);
+}
+
+.nodeGold { border-color: var(--m-gold); }
+.nodeStone { border-color: var(--m-border); }
+
+/* Image wrappers */
+.imgLeft,
+.imgRight {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.imgWrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.imgBg {
+  position: absolute;
+  inset: 0;
+}
+
+.img {
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imgCaption {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  font-size: 9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: oklch(40% 0.010 62);
+}
+
+/* Text right side */
+.textRight {
+  padding-left: 52px;
+}
+
+/* Text left side (right-aligned) */
+.textLeft {
+  padding-right: 52px;
+  text-align: right;
+}
+
+.dayNum {
+  font-family: var(--font-d);
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--m-border-s);
+  line-height: 0.85;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.dayLabel {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.dayTitle {
+  font-family: var(--font-d);
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.10;
+  margin-bottom: 22px;
+  font-style: italic;
+}
+
+.dayBody {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.85;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
+.textLeft .dayBody {
+  margin-left: auto;
+}
+
+.dayBodyFaded {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m-stone);
+  line-height: 1.85;
+  max-width: 380px;
+  margin-left: auto;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.dayStat {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--m-border-s);
+  display: flex;
+  gap: 24px;
+}
+
+.dayStatRight {
+  justify-content: flex-end;
+}
+
+.dayStatLabel {
+  font-size: 9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  margin-bottom: 5px;
+}
+
+.dayStatVal {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  font-style: italic;
+}
+
+.dayStatDivider {
+  width: 1px;
+  background: var(--m-border-s);
+}
+
+/* Center block (days 4-5) */
+.centerBlock {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+.centerBlockLine {
+  width: 1px;
+  height: 56px;
+  background: var(--m-border-s);
+  margin: 0 auto 40px;
+}
+
+.centerDayNum {
+  font-family: var(--font-d);
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--m-border-s);
+  line-height: 0.85;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.centerDayLabel {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.centerDayTitle {
+  font-family: var(--font-d);
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.15;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.centerDayBody {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.85;
+}
+
+@media (max-width: 1024px) {
+  .header { padding: 80px 64px 60px; }
+  .spine { padding: 0 64px; }
+  .h2 { font-size: 40px; }
+  .dayTitle { font-size: 30px; }
+  .dayNum { font-size: 60px; }
+}
+
+@media (max-width: 768px) {
+  .header { padding: 60px 32px 40px; }
+  .spine { padding: 0 32px; }
+  .row { grid-template-columns: 24px 1fr; }
+  .imgLeft, .imgRight { display: none; }
+  .textRight, .textLeft { grid-column: 2; padding: 0; text-align: left; }
+  .textLeft .dayBody { margin-left: 0; }
+  .dayStatRight { justify-content: flex-start; }
+  .dayBodyFaded { margin-left: 0; }
+  .centerBlock { max-width: 100%; }
+}

@@ -1,0 +1,46 @@
+.section {
+  padding: 160px 96px;
+  background: var(--m-raised);
+  border-top: 1px solid var(--m-border-s);
+  border-bottom: 1px solid var(--m-border-s);
+}
+
+.inner {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.goldLine {
+  width: 32px;
+  height: 1px;
+  background: var(--m-gold);
+  margin: 0 auto 52px;
+}
+
+.quote {
+  font-family: var(--font-d);
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.28;
+  font-style: italic;
+  margin-bottom: 36px;
+}
+
+.attribution {
+  font-family: var(--font-d);
+  font-size: 14px;
+  color: var(--m-stone);
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 100px 64px; }
+  .quote { font-size: 30px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 80px 32px; }
+  .quote { font-size: 24px; }
+}

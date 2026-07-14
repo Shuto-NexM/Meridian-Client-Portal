@@ -1,0 +1,118 @@
+.section {
+  padding: 220px 96px 120px;
+  background: var(--m-bg);
+  border-bottom: 1px solid var(--m-border-s);
+}
+
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.left {}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  animation: fade-up-1 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+  flex-shrink: 0;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h1 {
+  font-family: var(--font-d);
+  font-size: 120px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  animation: fade-up-2 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.h1Italic {
+  font-style: italic;
+  color: var(--m-stone);
+}
+
+.right {
+  max-width: 360px;
+  padding-bottom: 16px;
+  animation: fade-in 0.5s ease 0.9s both;
+}
+
+.intro {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.85;
+}
+
+/* Issue line */
+.issueLine {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--m-border-s);
+  animation: fade-in 0.5s ease 1.1s both;
+}
+
+.issueItem {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.issueLabel {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+}
+
+.issueVal {
+  font-family: var(--font-d);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--m-ink);
+}
+
+.issueValItalic { font-style: italic; }
+
+.issueDivider {
+  width: 1px;
+  height: 16px;
+  background: var(--m-border-s);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 160px 64px 80px; }
+  .h1 { font-size: 80px; }
+  .top { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .right { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 120px 32px 60px; }
+  .h1 { font-size: 60px; }
+  .issueLine { flex-wrap: wrap; gap: 20px; }
+}

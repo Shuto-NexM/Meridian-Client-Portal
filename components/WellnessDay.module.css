@@ -1,0 +1,132 @@
+.section {
+  padding: 0 0 160px;
+  background: var(--m-bg);
+}
+
+.header {
+  padding: 0 96px 56px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.heading {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--m-ink);
+  line-height: 1.06;
+}
+
+.headingMuted {
+  font-style: italic;
+  color: var(--m-stone);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--m-border-s);
+}
+
+.col {
+  padding: 36px 36px 44px;
+  border-right: 1px solid var(--m-border-s);
+  border-left: 3px solid var(--m-border-s);
+  position: relative;
+}
+
+.col:first-child {
+  border-left-color: var(--m-border-s);
+}
+
+.colAccent {
+  border-left-color: var(--m-gold);
+}
+
+.colTime {
+  font-family: var(--font-d);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--m-stone);
+  margin-bottom: 4px;
+}
+
+.colLabel {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  margin-bottom: 28px;
+}
+
+.imgWrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.imgCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imgFade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background: linear-gradient(to top, oklch(14% 0.010 65 / 0.5) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.colTitle {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--m-ink);
+  margin-bottom: 12px;
+}
+
+.colBody {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.82;
+}
+
+@media (max-width: 1024px) {
+  .header { padding: 0 64px 48px; }
+  .heading { font-size: 42px; }
+  .timeline { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .header { padding: 0 32px 40px; }
+  .heading { font-size: 34px; }
+  .timeline { grid-template-columns: 1fr; }
+}

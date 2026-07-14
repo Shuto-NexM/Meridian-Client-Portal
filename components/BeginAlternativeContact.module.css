@@ -1,0 +1,110 @@
+.section {
+  padding: 120px 96px;
+  background: var(--m-bg);
+}
+
+.inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.left {}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+  flex-shrink: 0;
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 44px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+  margin-bottom: 32px;
+}
+
+.h2Em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--m-stone);
+}
+
+.body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.82;
+}
+
+/* Right contact items */
+.right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.contactItem {
+  padding: 28px 0;
+  border-top: 1px solid var(--m-border-s);
+}
+
+.contactLabel {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.contactValue {
+  font-family: var(--font-d);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--m-ink);
+  font-style: italic;
+  display: block;
+  transition: color 200ms;
+}
+
+a.contactValue:hover { color: var(--m-stone); }
+
+.contactNote {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--m-stone);
+  margin-top: 6px;
+  line-height: 1.65;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 80px 64px; }
+  .inner { grid-template-columns: 1fr; gap: 48px; }
+  .h2 { font-size: 34px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 60px 32px; }
+}

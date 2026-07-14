@@ -1,0 +1,89 @@
+.section {
+  padding: 0 96px 160px;
+  background: var(--m-bg);
+  border-top: 1px solid var(--m-border-s);
+}
+
+.header {
+  padding-top: 100px;
+  margin-bottom: 80px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLine {
+  width: 20px;
+  height: 1px;
+  background: var(--m-border);
+}
+
+.eyebrow span {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--m-ink);
+  line-height: 1.05;
+  max-width: 520px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+}
+
+.cell {
+  padding: 52px 48px 56px;
+  background: var(--m-raised);
+  border: 1px solid var(--m-border-s);
+}
+
+.cellNotFirst {
+  border-left: none;
+}
+
+.cellBottomRow {
+  border-top: none;
+}
+
+.title {
+  font-family: var(--font-d);
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 28px;
+}
+
+.body {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.80;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 0 64px 100px; }
+  .h2 { font-size: 38px; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .title { font-size: 40px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 0 32px 80px; }
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,259 @@
+.section {
+  padding: 0 96px 160px;
+  background: var(--m-bg);
+  border-top: 1px solid var(--m-border-s);
+}
+
+.inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Form */
+.form {}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 9.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--m-stone);
+  font-weight: 500;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  background: var(--m-raised);
+  border: 1px solid var(--m-border-s);
+  border-radius: 4px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--m-ink);
+  padding: 13px 16px;
+  transition: border-color 220ms, box-shadow 220ms;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder,
+.textarea::placeholder { color: var(--m-stone); font-weight: 300; }
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--m-gold);
+  box-shadow: 0 0 0 3px oklch(66% 0.140 82 / 0.08);
+}
+
+.inputError {
+  border-color: oklch(58% 0.185 27) !important;
+}
+
+.fieldError {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: oklch(45% 0.12 27);
+  letter-spacing: 0.02em;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.68;
+}
+
+.select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+.hint {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--m-stone);
+  margin-top: 4px;
+}
+
+.btnSend {
+  background: var(--m-gold);
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  transition: background 220ms, transform 150ms;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.btnSend:hover { background: var(--m-gold-d); }
+.btnSend:active { transform: scale(0.99); }
+
+.privacy {
+  font-size: 11.5px;
+  font-weight: 300;
+  color: var(--m-stone);
+  line-height: 1.65;
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* Success state */
+.success {
+  padding: 56px 48px;
+  border: 1px solid var(--m-border-s);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.successLine {
+  width: 32px;
+  height: 1px;
+  background: var(--m-gold);
+  margin: 0 auto 32px;
+}
+
+.successTitle {
+  font-family: var(--font-d);
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--m-ink);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.successBody {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.80;
+  max-width: 380px;
+  margin: 0 auto 28px;
+}
+
+.successSig {
+  font-family: var(--font-d);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--m-stone);
+}
+
+/* Aside */
+.aside {
+  position: sticky;
+  top: 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.asideCard {
+  padding: 32px;
+  background: var(--m-surface);
+  border-radius: 4px;
+}
+
+.asideCardLabel {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--m-gold);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.asideItems {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.asideItem {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.asideDash {
+  font-family: var(--font-d);
+  font-size: 16px;
+  color: var(--m-gold);
+  flex-shrink: 0;
+}
+
+.asideItemText {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--m-charcoal);
+  line-height: 1.65;
+}
+
+.asideQuote {
+  padding: 28px 32px;
+  background: var(--m-surface);
+  border-radius: 4px;
+}
+
+.asideQuoteText {
+  font-family: var(--font-d);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--m-ink);
+  font-style: italic;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.asideQuoteSig {
+  font-size: 11.5px;
+  font-weight: 300;
+  color: var(--m-stone);
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 0 64px 120px; }
+  .grid { grid-template-columns: 1fr; gap: 48px; }
+  .aside { position: static; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 0 32px 80px; }
+  .row2 { grid-template-columns: 1fr; gap: 20px; }
+}
