@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from './Nav.module.css';
 
+const CLIENT_LOGIN_HREF = '/portal/login';
+
 const NAV_ROUTES: Record<string, string> = {
   'Destinations': '/journeys',
   'Experiences': '/collections',
@@ -31,7 +33,6 @@ export default function Nav({
   const [scrolled, setScrolled] = useState(lightMode);
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [signInOpen, setSignInOpen] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
@@ -197,17 +198,17 @@ export default function Nav({
                     Open Journey Workspace
                   </button>
                   <div className={styles.profileMenuDivider} />
-                  <button
+                  <Link
                     role="menuitem"
+                    href={CLIENT_LOGIN_HREF}
                     className={styles.profileMenuItem}
-                    onClick={() => { setProfileOpen(false); setSignInOpen(true); }}
+                    onClick={() => setProfileOpen(false)}
                   >
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/>
                     </svg>
-                    Sign in
-                    <span className={styles.prototypeBadge}>prototype</span>
-                  </button>
+                    Client Login
+                  </Link>
                 </div>
               )}
             </div>
@@ -288,68 +289,15 @@ export default function Nav({
               padding: '14px 0', fontSize: '13px',
               letterSpacing: '0.06em', textTransform: 'uppercase', textDecoration: 'none',
             }}>Journey Workspace</Link>
+            <Link href={CLIENT_LOGIN_HREF} onClick={closeMenu} style={{
+              display: 'inline-block', color: 'var(--m-stone)',
+              padding: '14px 0', fontSize: '13px',
+              letterSpacing: '0.06em', textTransform: 'uppercase', textDecoration: 'none',
+            }}>Client Login</Link>
           </div>
         </div>
       )}
 
-      {/* Sign in prototype modal */}
-      {signInOpen && (
-        <div
-          style={{
-            position: 'fixed', inset: 0, zIndex: 200,
-            background: 'oklch(8% 0.008 55 / 0.72)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: '24px',
-          }}
-          onClick={() => setSignInOpen(false)}
-        >
-          <div
-            onClick={e => e.stopPropagation()}
-            style={{
-              background: 'oklch(17% 0.012 55)',
-              border: '1px solid oklch(26% 0.014 55)',
-              borderRadius: '6px', padding: '40px 36px',
-              maxWidth: '400px', width: '100%',
-              textAlign: 'center',
-            }}
-          >
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              width: '48px', height: '48px', borderRadius: '50%',
-              background: 'oklch(22% 0.014 58)',
-              border: '1px solid oklch(30% 0.018 60)',
-              marginBottom: '24px',
-            }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.018 64)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-              </svg>
-            </div>
-            <div style={{
-              fontFamily: 'var(--font-d)', fontSize: '22px', fontWeight: 300,
-              color: 'oklch(88% 0.012 68)', marginBottom: '10px',
-            }}>Sign in</div>
-            <p style={{
-              fontSize: '13px', fontWeight: 300, color: 'oklch(46% 0.012 60)',
-              lineHeight: 1.7, marginBottom: '28px',
-            }}>
-              Authentication is not yet live in this prototype.
-              Journey workspaces are accessible directly from the account menu.
-            </p>
-            <button
-              onClick={() => setSignInOpen(false)}
-              style={{
-                width: '100%', padding: '12px',
-                background: 'oklch(22% 0.014 58)',
-                border: '1px solid oklch(32% 0.018 60)',
-                borderRadius: '2px',
-                color: 'oklch(68% 0.014 65)',
-                fontSize: '11.5px', letterSpacing: '0.07em',
-                textTransform: 'uppercase', cursor: 'pointer',
-              }}
-            >Close</button>
-          </div>
-        </div>
-      )}
     </>
   );
 }
