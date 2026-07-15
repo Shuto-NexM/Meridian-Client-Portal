@@ -159,12 +159,6 @@
   left: 0;
   height: 2px;
   background: #C8A96A;
-  animation: barGrow 1.6s 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-@keyframes barGrow {
-  from { width: 0; }
-  to   { width: 33.3%; }
 }
 
 .milestones {
@@ -710,6 +704,46 @@
   .milestones { gap: 0; }
   .mAmt { font-size: 8px; }
 }
+
+/* ── Pay now button (timeline) ───────────────────────────────────────────────── */
+.payNowBtn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 9px 20px;
+  background: #C8A96A;
+  color: #16120E;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-family: var(--p-font-ui);
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+}
+.payNowBtn:hover { opacity: 0.85; }
+
+/* ── Pay now button (sidebar) ─────────────────────────────────────────────────── */
+.sidePayNowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px 0;
+  background: #C8A96A;
+  color: #16120E;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-family: var(--p-font-ui);
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+}
+.sidePayNowBtn:hover { opacity: 0.85; }
 
 /* ── Receipt overlay ─────────────────────────────────────────────────────────── */
 .overlay {
