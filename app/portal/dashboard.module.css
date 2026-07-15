@@ -1,0 +1,707 @@
+/* Dashboard — pixel-matched to approved design */
+
+/* ─── Top bar override ──────────────────────────────────────────────────────── */
+.topBarDash { margin-bottom: 52px !important; }
+
+/* ─── Greeting ──────────────────────────────────────────────────────────────── */
+.greeting {
+  margin-bottom: 56px;
+  animation: fadeUp var(--p-dur-md) 0.05s var(--p-ease) both;
+}
+
+.greetingHeading {
+  font-family: var(--p-font-d);
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.08;
+  color: var(--p-ink);
+  letter-spacing: 0.01em;
+}
+
+.greetingSub {
+  margin-top: 16px;
+  font-family: var(--p-font-d);
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--p-sub-light);
+  letter-spacing: 0.01em;
+}
+
+/* ─── Grid ──────────────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 348px;
+  gap: 28px;
+  align-items: start;
+}
+
+.left  { display: flex; flex-direction: column; gap: 20px; }
+.right { display: flex; flex-direction: column; gap: 16px; }
+
+/* ─── Journey hero (dark) ───────────────────────────────────────────────────── */
+.journeyCard {
+  padding: 44px 48px 40px;
+  animation: fadeUp var(--p-dur-md) 0.1s var(--p-ease) both;
+}
+
+.journeyStatusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.journeyActiveLabel {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: #5A5040;
+}
+
+
+.journeyDest {
+  font-family: var(--p-font-d);
+  font-size: 88px;
+  font-weight: 300;
+  line-height: 0.9;
+  color: var(--p-main);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.journeyMeta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 44px;
+}
+
+.metaItem {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6A6050;
+}
+
+.metaSep {
+  width: 1px;
+  height: 10px;
+  background: #3A3020;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ─── Progress tracker ──────────────────────────────────────────────────────── */
+.stageWrapper { margin-bottom: 40px; }
+
+.stageTrack {
+  position: relative;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stageLineBg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: #2A2018;
+  transform: translateY(-50%);
+}
+
+.stageLineFill {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--p-gold);
+  transform: translateY(-50%);
+  transition: width 0.8s ease;
+}
+
+.stageDots {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.stageDot {
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stageDotDone {
+  width: 8px;
+  height: 8px;
+  background: var(--p-gold);
+  border: 1px solid var(--p-gold);
+}
+
+.stageDotActive {
+  width: 10px;
+  height: 10px;
+  background: #1C1810;
+  border: 2px solid var(--p-gold);
+}
+
+.stageDotInner {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--p-gold);
+  display: block;
+}
+
+.stageDotFuture {
+  width: 8px;
+  height: 8px;
+  background: #1C1810;
+  border: 1px solid #2A2018;
+}
+
+.stageLabelsRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stageLabel {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #3A3020;
+}
+
+.stageLabelActive {
+  color: var(--p-gold);
+  font-weight: 500;
+}
+
+/* ─── Journey CTAs ──────────────────────────────────────────────────────────── */
+.journeyCtas {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.viewSummary {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6A6050;
+  text-decoration: none;
+  transition: color var(--p-dur-xs) var(--p-ease);
+}
+.viewSummary:hover { color: var(--p-main); }
+
+/* ─── Shared card heading ───────────────────────────────────────────────────── */
+.cardHeading {
+  font-family: var(--p-font-d);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--p-ink);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Today card ────────────────────────────────────────────────────────────── */
+.todayCard {
+  padding: 32px 36px;
+  animation: fadeUp var(--p-dur-md) 0.12s var(--p-ease) both;
+}
+
+.todayHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.todayMeta {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9A9080;
+}
+
+/* Timeline */
+.timeline { position: relative; }
+
+.timelineRule {
+  position: absolute;
+  /* 80px time col + 0 gap = dot starts at 80px; rule runs through dot center (80 + 4 = 84, but design uses 80px exactly) */
+  left: 80px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: rgba(26,21,16,0.08);
+}
+
+.tlRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 28px;
+  position: relative;
+}
+.tlRow:last-child { margin-bottom: 0; }
+
+.tlTime {
+  width: 80px;
+  flex-shrink: 0;
+  padding-top: 1px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #9A9080;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.tlDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.tlDotActive {
+  background: var(--p-main);
+  border: 1.5px solid var(--p-gold);
+}
+
+.tlDotPlain {
+  background: var(--p-main);
+  border: 1.5px solid rgba(26,21,16,0.2);
+}
+
+.tlContent { padding-left: 20px; }
+.tlTitle { font-size: 13.5px; font-weight: 400; color: var(--p-ink); margin-bottom: 3px; }
+.tlPlace { font-size: 11.5px; color: #9A9080; font-weight: 300; }
+
+/* ─── Sofia card ────────────────────────────────────────────────────────────── */
+.sofiaCard {
+  padding: 32px 36px;
+  animation: fadeUp var(--p-dur-md) 0.14s var(--p-ease) both;
+}
+
+.sofiaHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.sofiaUpdated {
+  font-size: 9.5px;
+  color: #9A9080;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.sofiaTasks {}
+
+.sofiaTask {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.sofiaTaskBorder { border-bottom: 1px solid rgba(26,21,16,0.06); }
+
+.sofiaTaskDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: block;
+}
+
+.dotGold { background: #D49B50; }
+.dotGray { background: #9A9080; }
+
+.sofiaTaskBody { flex: 1; }
+.sofiaTaskText { font-size: 13px; color: var(--p-ink); font-weight: 400; }
+.sofiaTaskDetail { font-size: 11px; color: #9A9080; margin-top: 2px; }
+
+
+/* ─── Right column shared ───────────────────────────────────────────────────── */
+.rCard {}
+
+.rCardLabel {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9A9080;
+}
+
+/* ─── Messages card ─────────────────────────────────────────────────────────── */
+.msgHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 28px 20px;
+  animation: fadeUp var(--p-dur-md) 0.06s var(--p-ease) both;
+}
+
+.msgUnreadBadge {
+  background: var(--p-gold);
+  color: #16120E;
+  font-size: 8.5px;
+  font-weight: 500;
+  padding: 2px 7px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.msgBody {
+  display: flex;
+  gap: 12px;
+  padding: 0 28px 18px;
+}
+
+.msgAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #2A2018;
+  border: 1px solid rgba(200,169,106,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--p-font-d);
+  font-size: 13px;
+  color: var(--p-gold);
+  flex-shrink: 0;
+}
+
+.msgContent { flex: 1; min-width: 0; }
+
+.msgNameRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.msgName  { font-size: 12.5px; font-weight: 500; color: var(--p-ink); }
+.msgTime  { font-size: 10px; color: #9A9080; flex-shrink: 0; }
+
+.msgPreview {
+  font-size: 12px;
+  color: #6A6050;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.msgFooter {
+  padding: 16px 28px;
+  border-top: 1px solid rgba(26,21,16,0.07);
+}
+
+.msgCta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--p-ink);
+  text-decoration: none;
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+}
+.msgCta:hover { opacity: 0.7; }
+
+/* ─── Documents card ────────────────────────────────────────────────────────── */
+.docsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px 16px;
+  animation: fadeUp var(--p-dur-md) 0.08s var(--p-ease) both;
+}
+
+.docsViewAll {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  color: #9A9080;
+  text-decoration: none;
+  transition: color var(--p-dur-xs) var(--p-ease);
+}
+.docsViewAll:hover { color: var(--p-ink); }
+
+.docsList {
+  /* negative margin trick: items hover bg extends to card edges */
+  padding: 0 28px;
+}
+
+.docRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(26,21,16,0.06);
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 -8px;
+  transition: background var(--p-dur-xs) var(--p-ease);
+}
+.docRow:hover { background: rgba(200,169,106,0.055); }
+.docRow:hover .docName { color: #0A0804; }
+.docRowLast { border-bottom: none; }
+
+.docIconWrap {
+  width: 26px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.docBody { flex: 1; min-width: 0; }
+
+.docName {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--p-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--p-dur-xs) var(--p-ease);
+}
+
+.docMeta { font-size: 10px; color: #9A9080; margin-top: 1px; }
+
+.docArrow {
+  opacity: 0;
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+  flex-shrink: 0;
+}
+.docRow:hover .docArrow { opacity: 1; }
+
+/* ─── Emergency card ────────────────────────────────────────────────────────── */
+.emergencyHeader {
+  padding: 20px 28px 12px;
+  animation: fadeUp var(--p-dur-md) 0.1s var(--p-ease) both;
+}
+
+.emergencyList { padding: 0 28px 8px; }
+
+.emergencyRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(26,21,16,0.06);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+}
+.emergencyRow:hover { opacity: 0.7; }
+.emergencyRowLast { border-bottom: none; }
+
+.emergencyLabel {
+  font-size: 12px;
+  color: #3A3020;
+  font-weight: 400;
+}
+
+/* ─── Payments card ─────────────────────────────────────────────────────────── */
+.payHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px 14px;
+  animation: fadeUp var(--p-dur-md) 0.12s var(--p-ease) both;
+}
+
+.payStatus { display: flex; align-items: center; gap: 5px; }
+
+.payGreenDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7AB87A;
+}
+
+.payStatusText { font-size: 9.5px; color: #7AB87A; font-weight: 500; }
+
+.payBody { padding: 0 28px 18px; }
+
+.payProgressRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.payProgressLabel {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #9A9080;
+}
+
+.payProgressPct {
+  font-family: var(--p-font-d);
+  font-size: 13px;
+  font-weight: 400;
+  color: #9A9080;
+}
+
+.payProgressTrack {
+  height: 2px;
+  background: rgba(26,21,16,0.08);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.payProgressFill { height: 100%; background: var(--p-gold); }
+
+.payAmounts {
+  display: flex;
+  gap: 0;
+  margin-bottom: 14px;
+}
+
+.payAmountLeft {
+  flex: 1;
+  padding-right: 16px;
+  border-right: 1px solid rgba(26,21,16,0.08);
+}
+
+.payAmountRight {
+  flex: 1;
+  padding-left: 16px;
+}
+
+.payAmountLabel {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9A9080;
+  margin-bottom: 4px;
+}
+
+.payAmountNum {
+  font-family: var(--p-font-d);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--p-ink);
+}
+
+.payAmountSub { font-size: 10px; margin-top: 2px; }
+.paySubGreen  { color: #7AB87A; }
+.paySubGray   { color: #9A9080; }
+
+.payFooter {
+  padding-top: 12px;
+  border-top: 1px solid rgba(26,21,16,0.07);
+}
+
+.payCta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--p-ink);
+  text-decoration: none;
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+}
+.payCta:hover { opacity: 0.7; }
+
+/* ─── Offline bar ───────────────────────────────────────────────────────────── */
+.offlineBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: #F4EFE8;
+  border: 1px solid rgba(26,21,16,0.08);
+  animation: fadeUp var(--p-dur-md) 0.15s var(--p-ease) both;
+}
+
+.offlineTitle {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6A6050;
+  margin-bottom: 5px;
+}
+
+.offlineSub {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 10.5px;
+  color: #9A9080;
+  font-weight: 300;
+}
+
+.offlineSep { color: var(--p-gold); }
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr 300px; }
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .right { order: -1; }
+  .journeyDest { font-size: 60px; }
+  .journeyCard { padding: 28px 24px; }
+  .greeting { margin-bottom: 36px; }
+  .greetingHeading { font-size: 36px; }
+  .timelineRule { left: 60px; }
+  .tlTime { width: 60px; }
+}
+
+@media (max-width: 600px) {
+  .grid { gap: 16px; }
+  .journeyDest { font-size: 48px; }
+  .greetingHeading { font-size: 28px; }
+  .timelineRule { left: 50px; }
+  .tlTime { width: 50px; }
+}
+
+@media (max-width: 430px) {
+  .journeyDest { font-size: 40px; }
+  .journeyCard { padding: 20px 18px; }
+  .todayCard, .sofiaCard { padding: 24px 20px; }
+  .msgHeader, .msgBody, .msgFooter { padding-left: 20px; padding-right: 20px; }
+  .docsHeader, .docsList { padding-left: 20px; padding-right: 20px; }
+  .payHeader, .payBody, .payFooter { padding-left: 20px; padding-right: 20px; }
+  .emergencyHeader, .emergencyList { padding-left: 20px; padding-right: 20px; }
+  .offlineBar { padding: 12px 20px; }
+}

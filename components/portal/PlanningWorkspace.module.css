@@ -1,0 +1,170 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px 40px;
+  border-bottom: 1px solid var(--p-border);
+  background: var(--p-card);
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--p-muted);
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color var(--p-dur-xs) var(--p-ease);
+}
+.back:hover { color: var(--p-ink); }
+
+.titleRow { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+
+.title {
+  font-family: var(--p-font-d);
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--p-ink);
+}
+
+.meta { font-size: 12px; color: var(--p-muted); }
+.headerRight { flex-shrink: 0; padding-top: 28px; }
+
+.body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 0;
+  overflow-y: auto;
+}
+
+.main { padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+
+.sofiaNote {
+  background: var(--p-card);
+  border: 1px solid var(--p-border);
+  padding: 28px;
+}
+
+.sofiaRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sofiaAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--p-dark-2);
+  border: 1px solid rgba(200,169,106,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--p-font-d);
+  font-size: 13px;
+  color: var(--p-gold);
+  flex-shrink: 0;
+}
+
+.sofiaName { font-size: 13px; font-weight: 500; color: var(--p-ink); }
+.sofiaRole { font-size: 11px; color: var(--p-muted); }
+.sofiaUpdated { margin-left: auto; font-size: 10px; color: var(--p-muted); }
+
+.sofiaText {
+  font-size: 14px;
+  color: var(--p-sub);
+  line-height: 1.75;
+  font-weight: 300;
+  border-left: 2px solid var(--p-gold);
+  padding-left: 20px;
+}
+
+.statusCard {
+  background: var(--p-main);
+  border: 1px solid var(--p-border);
+  padding: 32px;
+}
+
+.statusTitle {
+  font-family: var(--p-font-d);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--p-ink);
+  margin-bottom: 10px;
+}
+
+.statusText {
+  font-size: 13.5px;
+  color: var(--p-sub);
+  line-height: 1.65;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.statusActions { display: flex; gap: 16px; align-items: center; }
+
+.aside {
+  border-left: 1px solid var(--p-border);
+  background: var(--p-card);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.asideCard {
+  padding: 18px;
+  border: 1px solid var(--p-border);
+}
+
+.asideLabel {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--p-muted);
+  margin-bottom: 8px;
+}
+
+.asideTitle { font-family: var(--p-font-d); font-size: 22px; font-weight: 300; color: var(--p-ink); margin-bottom: 2px; }
+.asideSub { font-size: 12px; color: var(--p-muted); margin-bottom: 6px; }
+.asideStats { font-size: 11px; color: var(--p-sub); display: flex; gap: 6px; }
+
+.concRow { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.concAvatar {
+  width: 30px; height: 30px; border-radius: 50%; background: var(--p-dark-2);
+  border: 1px solid rgba(200,169,106,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--p-font-d); font-size: 11px; color: var(--p-gold);
+}
+.concName { font-size: 13px; font-weight: 500; color: var(--p-ink); }
+.concStatus { font-size: 11px; color: var(--p-green); }
+
+.msgBtn {
+  display: block;
+  width: 100%;
+  padding: 9px 0;
+  background: var(--p-dark);
+  color: var(--p-main);
+  text-align: center;
+  text-decoration: none;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+}
+.msgBtn:hover { opacity: 0.8; }
+
+@media (max-width: 768px) {
+  .body { grid-template-columns: 1fr; }
+  .aside { border-left: none; border-top: 1px solid var(--p-border); }
+}

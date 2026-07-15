@@ -1,0 +1,9 @@
+.page {}
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.destinations { display: flex; flex-direction: column; gap: 16px; }
+.destRow { display: flex; align-items: center; gap: 12px; }
+.destDot { width: 6px; height: 6px; border-radius: 50%; background: var(--p-gold); flex-shrink: 0; }
+.destName { font-family: var(--p-font-d); font-size: 22px; font-weight: 300; color: var(--p-ink); }
+.note { background: var(--p-card); border: 1px solid var(--p-border); padding: 32px; }
+.noteTitle { font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--p-muted); margin-bottom: 12px; }
+.noteText { font-size: 13.5px; color: var(--p-sub); line-height: 1.65; font-weight: 300; margin-bottom: 24px; }

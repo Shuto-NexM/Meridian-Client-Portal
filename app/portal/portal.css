@@ -1,0 +1,735 @@
+/* ─── Portal Design Tokens — exact values from approved designs ──────────────
+   Dark sidebar (#16120E) + cream main (#F4EFE8) + white cards (#FFFFFF)
+   Cormorant Garamond (display) + DM Sans (UI)
+─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --p-shell:      #16120E;
+  --p-dark:       #1C1810;
+  --p-dark-2:     #2A2018;
+  --p-main:       #F4EFE8;
+  --p-card:       #FFFFFF;
+  --p-conv:       #EDE8E1;
+  --p-gold:       #C8A96A;
+  --p-gold-d:     #D49B50;
+  --p-gold-bg:    rgba(200,169,106,0.07);
+  --p-gold-bg2:   rgba(200,169,106,0.04);
+  --p-gold-border:rgba(200,169,106,0.25);
+  --p-green:      #7AB87A;
+  --p-green-dim:  rgba(122,184,122,0.4);
+  --p-ink:        #1A1510;
+  --p-sub:        #6A6050;
+  --p-sub-light:  #7A7060;
+  --p-muted:      #9A9080;
+  --p-pale:       #B8B0A0;
+  --p-warm:       #E8E0D0;
+  --p-cream:      #F4EFE8;
+  --p-inactive:   #5A5040;
+  --p-nav-inactive-icon: #5A5040;
+  --p-border:     rgba(26,21,16,0.07);
+  --p-border-md:  rgba(26,21,16,0.10);
+  --p-border-lg:  rgba(26,21,16,0.15);
+  --p-border-xl:  rgba(26,21,16,0.20);
+  --p-border-dark:rgba(255,255,255,0.06);
+  --p-sep-dark:   rgba(255,255,255,0.04);
+  --p-sidebar-w:  220px;
+  --p-nav-h:      56px;
+  --p-font-d:     var(--font-cg, 'Cormorant Garamond', 'Cormorant', Georgia, serif);
+  --p-font-ui:    var(--font-dm, 'DM Sans', system-ui, sans-serif);
+
+  /* ─── Motion tokens ────────────────────────────────────────────────────────
+     xs  140ms  instant feedback: hover colour / border
+     sm  200ms  standard interaction: button / link / card
+     md  280ms  panels / overlays / drawers
+     lg  420ms  page entrances
+  ─────────────────────────────────────────────────────────────────────────── */
+  --p-dur-xs: 140ms;
+  --p-dur-sm: 200ms;
+  --p-dur-md: 280ms;
+  --p-dur-lg: 420ms;
+  --p-ease:    cubic-bezier(0.25, 0, 0.1, 1);
+  --p-ease-in: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* ─── Shared keyframes ─────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Shell ────────────────────────────────────────────────────────────────── */
+
+.portalRoot {
+  display: flex;
+  width: 100%;
+  min-height: 100dvh;
+  background: var(--p-shell);
+  font-family: var(--p-font-ui);
+}
+
+/* ─── Sidebar ──────────────────────────────────────────────────────────────── */
+
+.sidebar {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: var(--p-sidebar-w);
+  background: var(--p-shell);
+  border-right: 1px solid var(--p-border-dark);
+  display: flex;
+  flex-direction: column;
+  z-index: 60;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.sidebar::-webkit-scrollbar { display: none; }
+
+/* Wordmark */
+.sidebarWordmark {
+  padding: 40px 32px 0;
+  margin-bottom: 32px;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebarName {
+  font-family: var(--p-font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--p-gold);
+  display: block;
+  line-height: 1;
+}
+
+.sidebarPortal {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4A4035;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Nav */
+.sidebarNav {
+  flex: 1;
+  padding: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 32px;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--p-inactive);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--p-dur-xs) var(--p-ease), background var(--p-dur-xs) var(--p-ease);
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  font-family: var(--p-font-ui);
+  text-align: left;
+}
+
+.navItem:hover {
+  color: var(--p-warm);
+  background: rgba(255,255,255,0.02);
+}
+
+.navItem.active {
+  color: var(--p-warm);
+  background: var(--p-gold-bg);
+}
+
+.navItem.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--p-gold);
+}
+
+.navIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.navItem .navIcon svg {
+  stroke: var(--p-inactive);
+  transition: stroke var(--p-dur-xs) var(--p-ease);
+}
+
+.navItem:hover .navIcon svg,
+.navItem.active .navIcon svg {
+  stroke: var(--p-warm);
+}
+
+.navBadge {
+  margin-left: auto;
+  background: var(--p-gold);
+  color: var(--p-shell);
+  font-size: 9px;
+  font-weight: 600;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Concierge card */
+.sidebarConcierge {
+  margin: 0 20px 32px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+}
+
+.conciergeLabel {
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: #4A4035;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.conciergeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.conciergeInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.conciergeAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--p-dark-2);
+  border: 1px solid rgba(200,169,106,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--p-font-d);
+  font-size: 13px;
+  color: var(--p-gold);
+  flex-shrink: 0;
+}
+
+.conciergeName {
+  font-family: var(--p-font-d);
+  font-size: 14px;
+  font-weight: 400;
+  color: #E8E0D0;
+  line-height: 1.2;
+}
+
+.conciergeStatus {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9.5px;
+  color: var(--p-muted);
+  margin-top: 2px;
+}
+
+.conciergeStatus::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--p-green);
+  flex-shrink: 0;
+}
+
+.conciergeMsg {
+  display: block;
+  font-size: 10.5px;
+  color: var(--p-gold);
+  text-decoration: none;
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--p-font-ui);
+}
+.conciergeMsg:hover { opacity: 0.7; }
+
+/* ─── Main content ─────────────────────────────────────────────────────────── */
+
+.main {
+  flex: 1;
+  margin-left: var(--p-sidebar-w);
+  background: var(--p-main);
+  min-height: 100dvh;
+  min-width: 0;
+}
+
+.mainInner {
+  padding: 52px 60px 80px;
+  max-width: 1100px;
+}
+
+/* Workspace uses full height — no mainInner padding */
+.mainFull {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ─── Top bar ──────────────────────────────────────────────────────────────── */
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.topDate {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--p-muted);
+}
+
+.topUser {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--p-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--p-font-d);
+  font-size: 11px;
+  color: #3A3020;
+}
+
+.topUsername {
+  font-size: 12px;
+  color: var(--p-sub);
+}
+
+/* ─── Section labels / eyebrows ────────────────────────────────────────────── */
+
+.eyebrow {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--p-muted);
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* ─── Page headings ────────────────────────────────────────────────────────── */
+
+.pageHeading {
+  font-family: var(--p-font-d);
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.08;
+  color: var(--p-ink);
+  letter-spacing: 0.01em;
+  margin-bottom: 6px;
+}
+
+.pageSubheading {
+  font-family: var(--p-font-d);
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--p-sub);
+  margin-bottom: 44px;
+}
+
+/* ─── Dark card ────────────────────────────────────────────────────────────── */
+
+.darkCard {
+  background: var(--p-dark);
+}
+
+/* ─── White card ───────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--p-card);
+  border: 1px solid var(--p-border);
+}
+
+/* ─── Status pills / badges ────────────────────────────────────────────────── */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.badge::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.badgeGold {
+  border: 1px solid rgba(210,155,80,0.4);
+  color: var(--p-gold-d);
+}
+.badgeGold::before { background: var(--p-gold-d); }
+
+.badgeGreen {
+  border: 1px solid var(--p-green-dim);
+  color: var(--p-green);
+}
+.badgeGreen::before { background: var(--p-green); }
+
+.badgeMuted {
+  border: 1px solid var(--p-border-lg);
+  color: var(--p-muted);
+}
+.badgeMuted::before { background: var(--p-muted); }
+
+/* ─── Buttons ──────────────────────────────────────────────────────────────── */
+
+.btnGold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+  background: var(--p-gold);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--p-shell);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--p-font-ui);
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+}
+.btnGold:hover { opacity: 0.85; }
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--p-sub);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--p-font-ui);
+  transition: color var(--p-dur-xs) var(--p-ease);
+}
+.btnGhost:hover { color: var(--p-ink); }
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  background: var(--p-card);
+  border: 1px solid var(--p-border-xl);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--p-ink);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: var(--p-font-ui);
+  transition: background var(--p-dur-xs) var(--p-ease);
+}
+.btnOutline:hover { background: var(--p-main); }
+
+/* ─── Progress bar (payments) ──────────────────────────────────────────────── */
+
+.progressTrack {
+  height: 2px;
+  background: rgba(26,21,16,0.08);
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--p-gold);
+}
+
+/* ─── Stage tracker (journey) ──────────────────────────────────────────────── */
+
+.stageTrack {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stageItem {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.stageDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(26,21,16,0.15);
+  background: transparent;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.stageItem.done .stageDot {
+  background: var(--p-gold);
+  border-color: var(--p-gold);
+}
+
+.stageItem.active .stageDot {
+  background: transparent;
+  border: 2px solid var(--p-gold);
+  box-shadow: 0 0 0 2px var(--p-gold-bg);
+}
+
+.stageLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(26,21,16,0.12);
+}
+
+.stageItem.done + .stageItem .stageLine,
+.stageItem.done .stageLine {
+  background: var(--p-gold);
+}
+
+.stageLabel {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--p-muted);
+  white-space: nowrap;
+}
+
+.stageItem.done .stageLabel,
+.stageItem.active .stageLabel {
+  color: var(--p-gold);
+}
+
+/* ─── Dark stage tracker (on dark cards) ──────────────────────────────────── */
+
+.stageTrackDark .stageLine {
+  background: rgba(255,255,255,0.08);
+}
+.stageTrackDark .stageDot {
+  border-color: rgba(255,255,255,0.15);
+  background: var(--p-dark);
+}
+.stageTrackDark .stageItem.done .stageDot { background: var(--p-gold); border-color: var(--p-gold); }
+.stageTrackDark .stageItem.active .stageDot { background: var(--p-dark); border-color: var(--p-gold); }
+.stageTrackDark .stageItem.done .stageLine { background: var(--p-gold); }
+.stageTrackDark .stageLabel { color: var(--p-inactive); }
+.stageTrackDark .stageItem.done .stageLabel,
+.stageTrackDark .stageItem.active .stageLabel { color: var(--p-gold); }
+
+/* ─── Card hover interaction ───────────────────────────────────────────────── */
+
+.cardHover {
+  transition: transform var(--p-dur-sm) var(--p-ease), box-shadow var(--p-dur-sm) var(--p-ease);
+  cursor: pointer;
+}
+.cardHover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(26,21,16,0.08);
+}
+
+/* ─── Mobile nav ───────────────────────────────────────────────────────────── */
+
+.mobileBar {
+  display: none;
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  height: 52px;
+  background: var(--p-shell);
+  border-bottom: 1px solid var(--p-border-dark);
+  z-index: 60;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+.mobileBarName {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--p-gold);
+}
+
+.mobileNav {
+  display: none;
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  height: var(--p-nav-h);
+  background: var(--p-shell);
+  border-top: 1px solid var(--p-border-dark);
+  z-index: 60;
+  align-items: stretch;
+  justify-content: space-around;
+  padding: 0 4px;
+}
+
+.mobileNavItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 1;
+  text-decoration: none;
+  color: var(--p-inactive);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 2px;
+  position: relative;
+  transition: color var(--p-dur-xs) var(--p-ease);
+}
+
+.mobileNavItem.active { color: var(--p-gold); }
+
+.mobileNavIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileNavItem svg { stroke: var(--p-inactive); transition: stroke var(--p-dur-xs) var(--p-ease); }
+.mobileNavItem.active svg { stroke: var(--p-gold); }
+
+.mobileNavBadge {
+  position: absolute;
+  top: 5px;
+  right: calc(50% - 16px);
+  background: var(--p-gold);
+  color: var(--p-shell);
+  font-size: 8px;
+  font-weight: 700;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .mobileBar { display: flex; }
+  .mobileNav { display: flex; }
+  .main { margin-left: 0; padding-top: 52px; padding-bottom: var(--p-nav-h); }
+  /* mainFull (workspace + messages) sits below mobileBar; nav height handled by its own scroll layout */
+  .mainFull { height: calc(100dvh - var(--p-nav-h)); }
+  .mainInner { padding: 32px 24px 60px; }
+  .pageHeading { font-size: 36px; }
+}
+
+@media (max-width: 600px) {
+  .mainInner { padding: 24px 16px 60px; }
+  .pageHeading { font-size: 28px; }
+}
+
+/* ─── Accessibility: focus visible ──────────────────────────────────────────── */
+
+.portalRoot :focus-visible {
+  outline: 2px solid var(--p-gold);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+/* Suppress click-focus outline; preserve keyboard ring */
+.portalRoot :focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─── Button reset utility ───────────────────────────────────────────────────── */
+
+.btnReset {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  width: 100%;
+  display: block;
+}
+
+/* ─── Accessibility: reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

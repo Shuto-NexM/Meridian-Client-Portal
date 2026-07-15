@@ -91,14 +91,14 @@ const japan: JourneyDef = {
       id: 'tokyo-days',
       dest: 'tokyo',
       days: 'Day 9 – 12',
-      accommodation: 'Aman Tokyo',
+      accommodation: 'Park Hyatt Tokyo',
       experiences: [
         { id: 't1', text: 'Tsukiji outer market before 7am with a chef guide' },
         { id: 't2', text: "Yanaka neighbourhood — the city that didn't burn" },
         { id: 't3', text: 'TeamLab Planets — evening immersion' },
         { id: 't4', text: 'Private sake tasting in a 200-year-old kura' },
       ],
-      description: "Four nights in the world's most quietly complex city. Aman Tokyo thirty-three floors above the Imperial Palace Gardens, looking down at a place that earned the right to that view.",
+      description: "Four nights in Shinjuku, high above the city. Park Hyatt Tokyo sits in the upper floors of a tower designed by Kenzō Tange — a building that earns its height.",
     },
   ],
   suggestions: [
