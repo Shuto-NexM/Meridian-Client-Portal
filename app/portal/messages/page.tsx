@@ -1,8 +1,9 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import s from './messages.module.css';
 import { MESSAGES, CONCIERGE, ACTIVE_JOURNEY } from '@/data/portal';
+import { useJourneyCtx } from '@/context/JourneyContext';
 
 function ArrowSm({ stroke = '#1A1510' }: { stroke?: string }) {
   return (
@@ -57,7 +58,25 @@ export default function MessagesPage() {
   const [input, setInput] = useState('');
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const active = MESSAGES.find(m => m.id === activeId) ?? MESSAGES[0];
+  const { changeRequests } = useJourneyCtx();
+
+  // Merge change requests into the Sofia thread as client messages
+  const active = useMemo(() => {
+    const base = MESSAGES.find(m => m.id === activeId) ?? MESSAGES[0];
+    if (activeId !== 'm1' || changeRequests.length === 0) return base;
+    const extraMsgs = changeRequests.map((r, i) => ({
+      role: 'user' as const,
+      text: r.category
+        ? `Change request · ${r.category}\n\n${r.message}`
+        : r.message,
+      time: r.time,
+      date: 'Today',
+      _isChangeRequest: true,
+      _journeyTitle: r.journeyTitle,
+      _category: r.category,
+    }));
+    return { ...base, thread: [...base.thread, ...extraMsgs] };
+  }, [activeId, changeRequests]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -270,14 +289,21 @@ export default function MessagesPage() {
                   </div>
                 );
               } else {
+                const isCR = (msg as any)._isChangeRequest;
                 items.push(
                   <div key={i} className={s.msgUser}>
                     <div className={s.msgMetaUser}>
                       <span className={s.msgTime}>{msg.time}</span>
                       <span className={s.msgSender}>You</span>
+                      {isCR && <span className={s.newBadge}>Change Request</span>}
                     </div>
                     <div className={s.bubbleUser}>
-                      <p className={s.bubbleText}>{msg.text}</p>
+                      {isCR && (msg as any)._category && (
+                        <p className={s.bubbleText} style={{ opacity: 0.65, fontSize: 11, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                          {(msg as any)._journeyTitle} · {(msg as any)._category}
+                        </p>
+                      )}
+                      <p className={s.bubbleText}>{isCR ? (msg as any).text.replace(/^Change request · [^\n]+\n\n/, '') : msg.text}</p>
                     </div>
                   </div>
                 );

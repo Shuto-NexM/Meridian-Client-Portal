@@ -1,0 +1,329 @@
+/* ─── Bell wrapper ─────────────────────────────────────────────────────────── */
+
+.wrap {
+  padding: 0 20px 8px;
+  position: relative;
+}
+
+.wrapMobile {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ─── Bell button — sidebar ────────────────────────────────────────────────── */
+
+.bell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  color: var(--p-inactive);
+  font-family: var(--p-font-ui);
+  font-size: 12.5px;
+  font-weight: 400;
+  text-align: left;
+  position: relative;
+  transition: color var(--p-dur-xs) var(--p-ease), background var(--p-dur-xs) var(--p-ease), border-color var(--p-dur-xs) var(--p-ease);
+}
+
+.bell svg {
+  stroke: var(--p-inactive);
+  flex-shrink: 0;
+  transition: stroke var(--p-dur-xs) var(--p-ease);
+}
+
+.bell:hover,
+.bell[aria-expanded="true"] {
+  color: var(--p-warm);
+  background: rgba(255,255,255,0.02);
+  border-color: rgba(200,169,106,0.18);
+}
+
+.bell:hover svg,
+.bell[aria-expanded="true"] svg {
+  stroke: var(--p-warm);
+}
+
+.bell::after {
+  content: 'Notifications';
+  font-size: 12.5px;
+}
+
+/* ─── Bell button — mobile ─────────────────────────────────────────────────── */
+
+.bellMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255,255,255,0.45);
+  position: relative;
+  transition: color var(--p-dur-xs) var(--p-ease);
+}
+
+.bellMobile:hover { color: rgba(255,255,255,0.8); }
+
+.bellMobile svg { stroke: currentColor; }
+
+/* ─── Unread dot ───────────────────────────────────────────────────────────── */
+
+.dot {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--p-gold);
+  border: 1.5px solid var(--p-shell);
+  flex-shrink: 0;
+}
+
+/* Mobile dot: on the bell icon itself */
+.bellMobile .dot {
+  top: 4px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-color: var(--p-shell);
+}
+
+/* ─── Popover ──────────────────────────────────────────────────────────────── */
+
+.popover {
+  position: fixed;
+  /* Positioned via left/top from inline style on desktop;
+     mobile variant overrides via .popoverMobile */
+  left: calc(var(--p-sidebar-w) + 16px);
+  top: auto;
+  bottom: 48px;
+  width: 320px;
+  background: var(--p-dark);
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  max-height: 480px;
+  animation: popoverIn var(--p-dur-md) var(--p-ease) both;
+}
+
+@keyframes popoverIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popover { animation: none; }
+}
+
+/* Mobile: drops from the top bar, right-aligned */
+.popoverMobile {
+  left: auto;
+  right: 12px;
+  top: calc(52px + 8px);
+  bottom: auto;
+  width: min(320px, calc(100vw - 24px));
+}
+
+/* ─── Popover header ───────────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+
+.headerTitle {
+  font-family: var(--p-font-ui);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+.markRead {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--p-font-ui);
+  font-size: 10px;
+  color: var(--p-gold);
+  transition: opacity var(--p-dur-xs) var(--p-ease);
+}
+.markRead:hover { opacity: 0.7; }
+
+/* ─── Notification list ────────────────────────────────────────────────────── */
+
+.list {
+  overflow-y: auto;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
+}
+
+/* ─── Individual notification item ────────────────────────────────────────── */
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding: 0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.045);
+  transition: background var(--p-dur-xs) var(--p-ease);
+  position: relative;
+}
+
+.item:last-child { border-bottom: none; }
+
+.item:hover { background: rgba(255,255,255,0.03); }
+
+.item:focus-visible {
+  outline: 2px solid var(--p-gold);
+  outline-offset: -2px;
+  border-radius: 0;
+}
+
+/* Unread: gold left accent stripe */
+.itemUnread {
+  background: rgba(200,169,106,0.04);
+}
+
+.itemUnread::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--p-gold);
+  opacity: 0.7;
+}
+
+/* ─── Unread dot column ────────────────────────────────────────────────────── */
+
+.itemIndicator {
+  width: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.itemDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--p-gold);
+  flex-shrink: 0;
+}
+
+/* ─── Item content ─────────────────────────────────────────────────────────── */
+
+.itemBody {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px 12px 0;
+  min-width: 0;
+}
+
+.itemIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--p-muted);
+}
+
+.itemUnread .itemIcon {
+  background: rgba(200,169,106,0.08);
+  border-color: rgba(200,169,106,0.15);
+  color: var(--p-gold);
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itemTitle {
+  font-family: var(--p-font-ui);
+  font-size: 12.5px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.35;
+  display: block;
+}
+
+.itemUnread .itemTitle {
+  font-weight: 500;
+  color: rgba(255,255,255,0.88);
+}
+
+.itemSub {
+  font-family: var(--p-font-ui);
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.4;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemTime {
+  font-family: var(--p-font-ui);
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.22);
+  display: block;
+  margin-top: 3px;
+}
+
+/* ─── Empty state ──────────────────────────────────────────────────────────── */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 24px;
+  color: rgba(255,255,255,0.2);
+  font-family: var(--p-font-ui);
+  font-size: 12px;
+  font-weight: 300;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .wrap { display: none; }
+}

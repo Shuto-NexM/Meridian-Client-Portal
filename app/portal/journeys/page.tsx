@@ -1,9 +1,8 @@
-import type { Metadata } from 'next';
+'use client';
 import Link from 'next/link';
-
-export const metadata: Metadata = { title: 'My Journeys' };
 import s from './journeys.module.css';
 import { ACTIVE_JOURNEY, PAST_JOURNEYS, PLANNING_JOURNEYS } from '@/data/portal';
+import { useJourneyCtx } from '@/context/JourneyContext';
 
 function ArrowSm({ stroke = '#1A1510' }: { stroke?: string }) {
   return (
@@ -44,6 +43,17 @@ const PAST_VISUALS: Record<string, { bg: string; fill: string; path: string }> =
 };
 
 export default function JourneysPage() {
+  const { japanStage, moroccoStage } = useJourneyCtx();
+
+  // Dynamic badge overrides for planning journeys
+  const planBadgeOverrides: Record<string, { text: string; color: string; border: string }> = {
+    Morocco: moroccoStage === 'approved'
+      ? { text: 'Approved', color: '#7AB87A', border: 'rgba(122,184,122,0.4)' }
+      : moroccoStage === 'changes-requested'
+      ? { text: 'Changes Requested', color: '#9A9080', border: 'rgba(154,144,128,0.35)' }
+      : { text: 'Awaiting Review', color: '#C8A96A', border: 'rgba(200,169,106,0.45)' },
+  };
+
   return (
     <>
       {/* Top bar */}
@@ -169,13 +179,21 @@ export default function JourneysPage() {
                   {/* Destination name */}
                   <div className={s.planImgTitle}>{j.title}</div>
                   {/* Status badge */}
-                  <div
-                    className={s.planImgBadge}
-                    style={{ borderColor: v.badgeBorder, color: v.badgeColor }}
-                  >
-                    <span className={s.planBadgeDot} style={{ background: v.badgeColor }} />
-                    <span>{v.badgeText}</span>
-                  </div>
+                  {(() => {
+                    const override = planBadgeOverrides[j.title];
+                    const bdgColor = override?.color ?? v.badgeColor;
+                    const bdgBorder = override?.border ?? v.badgeBorder;
+                    const bdgText = override?.text ?? v.badgeText;
+                    return (
+                      <div
+                        className={s.planImgBadge}
+                        style={{ borderColor: bdgBorder, color: bdgColor }}
+                      >
+                        <span className={s.planBadgeDot} style={{ background: bdgColor }} />
+                        <span>{bdgText}</span>
+                      </div>
+                    );
+                  })()}
                 </div>
 
                 {/* Card body */}

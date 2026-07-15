@@ -703,9 +703,301 @@
   line-height: 1.7;
 }
 
+/* ── Close button ── */
+.viewerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #9A9080;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  transition: color var(--p-dur-xs, 140ms) var(--p-ease);
+}
+.viewerClose:hover { color: #1A1510; }
+
+/* ── Status Pending badge ── */
+.status_Pending {
+  color: #B87830;
+  background: rgba(184, 120, 48, 0.08);
+  border-color: rgba(184, 120, 48, 0.3);
+}
+
+/* ── Shared download action bar ── */
+.viewerActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 24px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(26, 21, 16, 0.08);
+}
+.viewerDownloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #1A1510;
+  background: rgba(26, 21, 16, 0.05);
+  border: 1px solid rgba(26, 21, 16, 0.15);
+  cursor: pointer;
+  transition: background var(--p-dur-xs, 140ms) var(--p-ease), border-color var(--p-dur-xs, 140ms) var(--p-ease);
+}
+.viewerDownloadBtn:hover { background: rgba(26, 21, 16, 0.09); border-color: rgba(26, 21, 16, 0.25); }
+
+/* ── Shared doc-level status badges ── */
+.docStatusBadge {
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid;
+}
+.statusConfirmed { color: #6A8A70; border-color: rgba(106, 138, 112, 0.4); background: rgba(106, 138, 112, 0.06); }
+.statusAwaiting  { color: #9A9080; border-color: rgba(154, 144, 128, 0.35); background: rgba(154, 144, 128, 0.05); }
+.statusPending   { color: #B87830; border-color: rgba(184, 120, 48, 0.3); background: rgba(184, 120, 48, 0.06); }
+
+/* ── Viewer section utility ── */
+.viewerSection { margin-bottom: 8px; }
+.viewerSectionLabel {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9A9080;
+  margin: 24px 0 12px;
+}
+
+/* ── Hotel viewer ── */
+.hotelCard {
+  border: 1px solid rgba(26, 21, 16, 0.1);
+  padding: 20px 24px;
+  margin-bottom: 14px;
+}
+.hotelStatus { margin-bottom: 10px; }
+.hotelName { font-size: 20px; font-weight: 300; font-family: var(--p-font-d); color: #1A1510; margin-bottom: 2px; }
+.hotelLoc  { font-size: 11px; color: #9A9080; margin-bottom: 14px; }
+.hotelMeta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+
+/* Shared meta item */
+.metaItem { display: flex; flex-direction: column; gap: 3px; }
+.metaLabel { font-size: 9px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #9A9080; }
+.metaValue { font-size: 13px; color: #1A1510; }
+.metaMono  { font-family: monospace; letter-spacing: 0.06em; }
+.metaSpan2 { grid-column: span 2; }
+
+/* ── Flight viewer ── */
+.flightCard {
+  border: 1px solid rgba(26, 21, 16, 0.1);
+  padding: 22px 26px;
+  margin-bottom: 20px;
+}
+.flightAirlineRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.flightAirline   { font-size: 14px; font-weight: 500; color: #1A1510; }
+.flightFlightNum { font-size: 11px; color: #9A9080; }
+.flightRoute {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 20px;
+}
+.flightEnd { flex: 1; }
+.flightEndRight { text-align: right; }
+.flightCode { font-family: var(--p-font-d); font-size: 40px; font-weight: 300; color: #1A1510; letter-spacing: 0.1em; line-height: 1; }
+.flightCity { font-size: 10px; color: #9A9080; margin-top: 2px; }
+.flightTime { font-size: 16px; font-weight: 300; color: #1A1510; margin-top: 6px; }
+.nextDay    { font-size: 10px; color: #9A9080; vertical-align: super; }
+.flightMiddle { flex: 0 0 auto; padding: 0 14px; text-align: center; }
+.flightDur  { font-size: 9px; color: #9A9080; margin-bottom: 6px; }
+.flightLine { width: 64px; height: 1px; background: #C8A96A; margin: 0 auto; }
+.flightMetaGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+.passengerList { border-top: 1px solid rgba(26, 21, 16, 0.08); }
+.passengerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(26, 21, 16, 0.06);
+  font-size: 13px;
+  color: #1A1510;
+}
+.passengerName { }
+.passengerSeat { font-size: 11px; color: #9A9080; font-family: monospace; }
+
+/* ── Transfers viewer ── */
+.transferList {}
+.transferRow {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(26, 21, 16, 0.07);
+  align-items: flex-start;
+}
+.transferDate   { min-width: 54px; font-size: 10px; color: #9A9080; padding-top: 2px; flex-shrink: 0; }
+.transferTime   { min-width: 42px; font-size: 13px; color: #C8A96A; flex-shrink: 0; }
+.transferTitle  { font-size: 13px; color: #1A1510; margin-bottom: 2px; }
+.transferDetail { font-size: 11px; color: #9A9080; }
+
+/* ── Booking / experiences list ── */
+.bookingList {}
+.bookingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(26, 21, 16, 0.07);
+}
+.bookingName   { font-size: 14px; color: #1A1510; margin-bottom: 3px; }
+.bookingDetail { font-size: 11px; color: #9A9080; }
+.bookingRight  { text-align: right; flex-shrink: 0; }
+.bookingDate   { font-size: 10px; color: #9A9080; margin-bottom: 6px; }
+.awaitingNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 14px;
+  background: rgba(212, 155, 80, 0.07);
+  border-left: 2px solid #D49B50;
+  font-size: 11px;
+  color: #9A7040;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* ── Wellness appointments ── */
+.apptList {}
+.apptCard {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(26, 21, 16, 0.07);
+}
+.apptMeta  { display: flex; gap: 12px; margin-bottom: 6px; }
+.apptDate  { font-size: 10px; color: #9A9080; }
+.apptTime  { font-size: 10px; color: #C8A96A; }
+.apptTitle { font-size: 14px; color: #1A1510; margin-bottom: 2px; }
+.apptLoc   { font-size: 11px; color: #9A9080; }
+
+/* ── Insurance unavailable state ── */
+.unavailableState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+  text-align: center;
+  min-height: 380px;
+}
+.unavailableIcon  { margin-bottom: 22px; opacity: 0.6; }
+.unavailableTitle { font-family: var(--p-font-d); font-size: 32px; font-weight: 300; color: #1A1510; margin-bottom: 12px; }
+.unavailableBadge { margin-bottom: 18px; }
+.unavailableText  { font-size: 13px; color: #9A9080; line-height: 1.7; max-width: 340px; margin-bottom: 32px; }
+.unavailableActions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.unavailableBack {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9A9080;
+  background: transparent;
+  border: 1px solid rgba(154, 144, 128, 0.3);
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: border-color var(--p-dur-xs) var(--p-ease), color var(--p-dur-xs) var(--p-ease);
+}
+.unavailableBack:hover { border-color: rgba(154, 144, 128, 0.7); color: #6A6050; }
+.unavailableMsg {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C8A96A;
+  text-decoration: none;
+  border: 1px solid rgba(200, 169, 106, 0.4);
+  padding: 8px 18px;
+  transition: border-color var(--p-dur-xs) var(--p-ease);
+}
+.unavailableMsg:hover { border-color: rgba(200, 169, 106, 0.8); }
+
+/* ── Emergency contacts ── */
+.contactList {}
+.contactCard {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(26, 21, 16, 0.07);
+}
+.contactType   { font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #9A9080; margin-bottom: 5px; }
+.contactName   { font-size: 13px; color: #1A1510; margin-bottom: 3px; }
+.contactNum    { font-family: var(--p-font-d); font-size: 22px; font-weight: 300; color: #1A1510; margin-bottom: 4px; }
+.contactDetail { font-size: 11px; color: #9A9080; }
+
+/* ── Visa viewer ── */
+.visaHighlight {
+  background: rgba(106, 138, 112, 0.07);
+  border-left: 2px solid #7AB87A;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.visaHighlightTitle { font-size: 16px; font-weight: 400; color: #1A1510; margin-bottom: 3px; }
+.visaHighlightSub   { font-size: 11px; color: #6A8A70; }
+.visaList {}
+.visaItem { padding: 13px 0; border-bottom: 1px solid rgba(26, 21, 16, 0.07); }
+.visaItemTitle { font-size: 13px; font-weight: 500; color: #1A1510; margin-bottom: 4px; }
+.visaItemText  { font-size: 12px; color: #6A6050; line-height: 1.7; }
+
+/* ── Packing guide ── */
+.packSection  { margin-bottom: 24px; }
+.packCategory { font-size: 13px; font-weight: 500; color: #1A1510; padding-bottom: 8px; border-bottom: 1px solid rgba(26, 21, 16, 0.09); margin-bottom: 10px; }
+.packItems    {}
+.packItem     { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #6A6050; line-height: 1.65; margin-bottom: 5px; }
+.packDot      { width: 3px; height: 3px; background: #C8A96A; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+
+/* ── Receipt doc viewer ── */
+.receiptDocView { padding: 36px 48px 44px; }
+.receiptDocHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #C8A96A;
+  padding-bottom: 18px;
+  margin-bottom: 28px;
+}
+.receiptDocWordmark { font-family: var(--p-font-d); font-size: 28px; font-weight: 300; letter-spacing: 0.1em; color: #1A1510; }
+.receiptDocSub      { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #9A9080; margin-top: 3px; }
+.receiptDocRefBlock { text-align: right; }
+.receiptDocRefLabel { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A9080; margin-bottom: 3px; }
+.receiptDocRefNum   { font-size: 14px; font-weight: 500; color: #1A1510; font-family: monospace; }
+.receiptDocAmt {
+  background: rgba(26, 21, 16, 0.04);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+.receiptDocAmtLabel { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A9080; margin-bottom: 8px; }
+.receiptDocAmtNum   { font-family: var(--p-font-d); font-size: 48px; font-weight: 300; color: #1A1510; letter-spacing: 0.04em; }
+.receiptDocGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; margin-bottom: 24px; }
+.receiptDocNote { font-size: 11px; color: #9A9080; line-height: 1.7; border-top: 1px solid rgba(26, 21, 16, 0.08); padding-top: 16px; }
+
 /* Generic viewer */
 .viewerBody {
   padding: 36px 48px 44px;
+  overflow-y: auto;
+  max-height: calc(90vh - 64px);
 }
 
 .viewerTitle {

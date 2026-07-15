@@ -87,6 +87,75 @@
   padding-left: 20px;
 }
 
+/* ─── Proposed bookings (Morocco) ─────────────────────────────────────────── */
+
+.proposedSection {
+  border: 1px solid var(--p-border);
+  background: var(--p-main);
+  margin-bottom: 16px;
+}
+
+.proposedLabel {
+  font-family: var(--p-font-ui);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--p-muted);
+  padding: 14px 20px 0;
+  margin-bottom: 6px;
+}
+
+.proposedNote {
+  font-family: var(--p-font-ui);
+  font-size: 12px;
+  color: var(--p-muted);
+  font-weight: 300;
+  line-height: 1.6;
+  padding: 0 20px 12px;
+  border-bottom: 1px solid var(--p-border);
+  margin: 0;
+}
+
+.proposedItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--p-border);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--p-dur-xs) var(--p-ease);
+}
+.proposedItem:last-child { border-bottom: none; }
+.proposedItem:hover { background: var(--p-warm); }
+.proposedItem:focus-visible { outline: 2px solid var(--p-gold); outline-offset: -2px; }
+
+.proposedItemLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.proposedItemTitle {
+  font-family: var(--p-font-ui);
+  font-size: 13px;
+  color: var(--p-ink);
+  font-weight: 300;
+}
+
+.proposedItemSub {
+  font-family: var(--p-font-ui);
+  font-size: 11px;
+  color: var(--p-muted);
+  font-weight: 300;
+}
+
 .statusCard {
   background: var(--p-main);
   border: 1px solid var(--p-border);

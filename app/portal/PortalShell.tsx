@@ -2,6 +2,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
+import { JourneyProvider } from '@/context/JourneyContext';
+import { NotificationProvider } from '@/context/NotificationContext';
+import NotificationBell from '@/components/portal/NotificationBell';
 
 const NAV = [
   { href: '/portal',            label: 'Dashboard',   icon: DashIcon,   exact: true },
@@ -29,6 +32,8 @@ export default function PortalShell({ children }: { children: ReactNode }) {
   }
 
   return (
+    <NotificationProvider>
+    <JourneyProvider>
     <div className="portalRoot">
       {/* Desktop sidebar */}
       <aside className="sidebar" aria-label="Portal navigation">
@@ -54,6 +59,9 @@ export default function PortalShell({ children }: { children: ReactNode }) {
           ))}
         </nav>
 
+        {/* Notification bell — sits between nav and concierge card */}
+        <NotificationBell variant="sidebar" />
+
         <div className="sidebarConcierge">
           <div className="conciergeLabel">Your Concierge</div>
           <div className="conciergeRow">
@@ -75,7 +83,10 @@ export default function PortalShell({ children }: { children: ReactNode }) {
       {/* Mobile top bar */}
       <div className="mobileBar" role="banner">
         <span className="mobileBarName">Meridian</span>
-        <div className="topAvatar" aria-hidden="true">EW</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <NotificationBell variant="mobile" />
+          <div className="topAvatar" aria-hidden="true">EW</div>
+        </div>
       </div>
 
       {/* Main */}
@@ -101,6 +112,8 @@ export default function PortalShell({ children }: { children: ReactNode }) {
         ))}
       </nav>
     </div>
+    </JourneyProvider>
+    </NotificationProvider>
   );
 }
 

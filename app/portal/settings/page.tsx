@@ -3,15 +3,10 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './settings.module.css';
 import { PORTAL_USER } from '@/data/portal';
+import { useNotificationCtx, type NotifSettingKey } from '@/context/NotificationContext';
 
 type Section = 'notifications' | 'language' | 'privacy' | 'security' | 'signout';
 type Modal   = 'password' | 'signout' | 'delete' | null;
-
-interface NotifState { email: boolean; app: boolean; }
-interface Notifs {
-  message: NotifState; proposal: NotifState; document: NotifState;
-  payment: NotifState; status: NotifState; predep: NotifState;
-}
 
 function Toggle({ on, onToggle, label }: { on: boolean; onToggle: () => void; label?: string }) {
   function handleKey(e: React.KeyboardEvent) {
@@ -32,7 +27,7 @@ function Toggle({ on, onToggle, label }: { on: boolean; onToggle: () => void; la
   );
 }
 
-const NOTIF_ROWS: { key: keyof Notifs; label: string; sub: string }[] = [
+const NOTIF_ROWS: { key: NotifSettingKey; label: string; sub: string }[] = [
   { key: 'message',  label: 'New concierge message',    sub: 'When Sofia sends you a message'         },
   { key: 'proposal', label: 'Journey proposal updated', sub: 'When your itinerary or proposal changes' },
   { key: 'document', label: 'Document added',           sub: 'When a new document is shared'          },
@@ -56,18 +51,7 @@ export default function SettingsPage() {
     return () => document.removeEventListener('keydown', onKey);
   }, [modal]);
 
-  const [notifs, setNotifs] = useState<Notifs>({
-    message:  { email: true,  app: true  },
-    proposal: { email: true,  app: true  },
-    document: { email: false, app: true  },
-    payment:  { email: true,  app: true  },
-    status:   { email: true,  app: false },
-    predep:   { email: true,  app: true  },
-  });
-
-  function toggleNotif(key: keyof Notifs, ch: 'email' | 'app') {
-    setNotifs(prev => ({ ...prev, [key]: { ...prev[key], [ch]: !prev[key][ch] } }));
-  }
+  const { settings: notifs, toggleSetting: toggleNotif } = useNotificationCtx();
 
   function handleSave() {
     if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
