@@ -113,7 +113,11 @@ const STAGE_BADGE_LABEL: Record<string, string> = {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function JapanWorkspacePage() {
   const [expandedDay, setExpandedDay]         = useState<string | null>('d2');
-  const [activeTab, setActiveTab]             = useState<'itinerary' | 'notes' | 'sofia'>('itinerary');
+  const [activeTab, setActiveTab]             = useState<'itinerary' | 'notes' | 'sofia'>(() => {
+    if (typeof window === 'undefined') return 'itinerary';
+    const p = new URLSearchParams(window.location.search).get('tab');
+    return (p === 'notes' || p === 'sofia') ? p : 'itinerary';
+  });
   const [showReview, setShowReview]           = useState(false);
   const [viewingBookingId, setViewingBookingId] = useState<string | null>(null);
 
